@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12987,6 +12987,9 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <part name="U$5" library="SparkFun" deviceset="SPI_FLASH-X25XX" device="SMD"/>
 <part name="U$6" library="SparkFun" deviceset="SPI_FLASH-X25XX" device="SMD1"/>
 <part name="SG1" library="buzzer" deviceset="EFB?" device="RD24C411"/>
+<part name="S4" library="SparkFun" deviceset="SWITCH-MOMENTARY-2" device="SMD"/>
+<part name="+3V12" library="supply1" deviceset="+3V3" device=""/>
+<part name="GND45" library="SparkFun" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13111,9 +13114,12 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <instance part="D3" gate="G$1" x="154.94" y="209.55"/>
 <instance part="D4" gate="G$1" x="160.02" y="209.55" rot="R180"/>
 <instance part="R5" gate="G$1" x="168.91" y="191.77" rot="R180"/>
-<instance part="U$5" gate="G$1" x="95.25" y="124.46"/>
-<instance part="U$6" gate="G$1" x="95.25" y="107.95"/>
+<instance part="U$5" gate="G$1" x="173.99" y="88.9"/>
+<instance part="U$6" gate="G$1" x="176.53" y="128.27"/>
 <instance part="SG1" gate="G$1" x="121.92" y="113.03"/>
+<instance part="S4" gate="G$1" x="87.63" y="189.23"/>
+<instance part="+3V12" gate="G$1" x="194.31" y="130.81" rot="R270"/>
+<instance part="GND45" gate="1" x="158.75" y="123.19" smashed="yes" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -13351,6 +13357,10 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="GND43" gate="1" pin="GND"/>
 <wire x1="157.48" y1="198.12" x2="157.48" y2="199.39" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="GND"/>
+<pinref part="GND45" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -13489,6 +13499,10 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
 <pinref part="+3V11" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="VCC"/>
+<pinref part="+3V12" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -13690,6 +13704,11 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <wire x1="220.98" y1="105.41" x2="213.36" y2="105.41" width="0.1524" layer="91"/>
 <label x="214.63" y="105.41" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="MISO"/>
+<wire x1="161.29" y1="128.27" x2="149.86" y2="128.27" width="0.1524" layer="91"/>
+<label x="149.86" y="128.27" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="MOSI" class="0">
 <segment>
@@ -13702,6 +13721,11 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <wire x1="220.98" y1="107.95" x2="213.36" y2="107.95" width="0.1524" layer="91"/>
 <label x="214.63" y="107.95" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="MOSI"/>
+<wire x1="191.77" y1="123.19" x2="201.93" y2="123.19" width="0.1524" layer="91"/>
+<label x="196.85" y="123.19" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="CLK" class="0">
 <segment>
@@ -13713,6 +13737,11 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="U$2" gate="G$1" pin="SCLK"/>
 <wire x1="220.98" y1="110.49" x2="213.36" y2="110.49" width="0.1524" layer="91"/>
 <label x="214.63" y="110.49" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="SCK"/>
+<wire x1="191.77" y1="125.73" x2="201.93" y2="125.73" width="0.1524" layer="91"/>
+<label x="196.85" y="125.73" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="CS" class="0">
@@ -13828,6 +13857,37 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="U$1" gate="G$1" pin="DSYNC"/>
 <wire x1="223.52" y1="231.14" x2="215.9" y2="231.14" width="0.1524" layer="91"/>
 <label x="215.9" y="231.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="CS_F" class="0">
+<segment>
+<pinref part="U$6" gate="G$1" pin="CS"/>
+<wire x1="161.29" y1="130.81" x2="149.86" y2="130.81" width="0.1524" layer="91"/>
+<label x="149.86" y="130.81" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="P2.0"/>
+<wire x1="66.04" y1="152.4" x2="71.12" y2="152.4" width="0.1524" layer="91"/>
+<label x="71.12" y="152.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$27" class="0">
+<segment>
+<pinref part="U$6" gate="G$1" pin="WP"/>
+<wire x1="161.29" y1="125.73" x2="149.86" y2="125.73" width="0.1524" layer="91"/>
+<label x="149.86" y="125.73" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="HOLD" class="0">
+<segment>
+<pinref part="U$6" gate="G$1" pin="HOLD"/>
+<wire x1="191.77" y1="128.27" x2="201.93" y2="128.27" width="0.1524" layer="91"/>
+<label x="196.85" y="128.27" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="P1.7"/>
+<wire x1="66.04" y1="157.48" x2="72.39" y2="157.48" width="0.1524" layer="91"/>
+<label x="71.12" y="157.48" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
