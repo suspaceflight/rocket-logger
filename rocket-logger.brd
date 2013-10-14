@@ -110,7 +110,7 @@
 <wire x1="19.75" y1="47.75" x2="5.5" y2="47.75" width="0" layer="20"/>
 <hole x="2.75" y="47.5" drill="3"/>
 <rectangle x1="21.75" y1="32.5" x2="23.655" y2="47.74" layer="1" rot="R180"/>
-<rectangle x1="26.355" y1="8.89" x2="43.5" y2="31.75" layer="16"/>
+<rectangle x1="17.355" y1="5.89" x2="34.5" y2="28.75" layer="16"/>
 <text x="10.25" y="37.75" size="1.016" layer="122" ratio="12" rot="MR270">ON</text>
 <text x="8.5" y="37.75" size="1.016" layer="122" ratio="12" rot="MR270">ACT</text>
 <wire x1="0" y1="48.25" x2="0" y2="0" width="0" layer="20"/>
@@ -144,6 +144,8 @@
 <hole x="1.25" y="47.75" drill="0.381"/>
 <hole x="0.5" y="47.75" drill="0.381"/>
 <rectangle x1="17.5" y1="19.75" x2="22.58" y2="26.1" layer="20" rot="R180"/>
+<rectangle x1="-12" y1="-12" x2="0" y2="0" layer="20"/>
+<circle x="40.5" y="21.75" radius="6" width="0" layer="20"/>
 </plain>
 <libraries>
 <library name="Mine">
@@ -3472,6 +3474,27 @@ diameter 2 mm, horizontal, grid 10.16 mm</description>
 </package>
 </packages>
 </library>
+<library name="buzzer">
+<description>&lt;b&gt;Speakers and Buzzers&lt;/b&gt;&lt;p&gt;
+&lt;ul&gt;Distributors:
+&lt;li&gt;Buerklin
+&lt;li&gt;Spoerle
+&lt;li&gt;Schukat
+&lt;/ul&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="EFBRD24C411">
+<description>&lt;b&gt;Piezoelectric Acoustic Transducer&lt;/b&gt;&lt;p&gt;
+Source: Panbasonic .. 2SC1685.pdf</description>
+<circle x="0" y="0" radius="11.9" width="0.2032" layer="21"/>
+<pad name="1" x="-5" y="0" drill="1.1" diameter="1.6764"/>
+<pad name="2" x="5" y="0" drill="1.1" diameter="1.6764"/>
+<text x="-3.175" y="3.175" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
+<rectangle x1="10.675" y1="-0.8" x2="11.85" y2="0.8" layer="21"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3731,6 +3754,12 @@ design rules under a new name.</description>
 <element name="R5" library="rcl" package="R0402" value="" x="2.5" y="41" rot="R180"/>
 <element name="U$5" library="SparkFun" package="SO08" value="SPI_FLASH-X25XXSMD" x="21.5" y="23.75" rot="R180"/>
 <element name="U$6" library="SparkFun" package="SO08-EIAJ" value="SPI_FLASH-X25XXSMD1" x="11" y="25.25" rot="R180"/>
+<element name="SG1" library="buzzer" package="EFBRD24C411" value="EFBRD24C411" x="0.25" y="-51">
+<attribute name="OC_NEWARK" value="unknown" x="0.25" y="-51" size="1.016" layer="27" ratio="12" display="off"/>
+<attribute name="MPN" value="" x="0.25" y="-51" size="1.016" layer="27" ratio="12" display="off"/>
+<attribute name="MF" value="" x="0.25" y="-51" size="1.016" layer="27" ratio="12" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="0.25" y="-51" size="1.016" layer="27" ratio="12" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -4503,6 +4532,9 @@ design rules under a new name.</description>
 <wire x1="4" y1="41" x2="4.25" y2="41.25" width="0.254" layer="1"/>
 <via x="4.25" y="41.25" extent="1-16" drill="0.381" shape="octagon"/>
 <wire x1="4.25" y1="41.25" x2="15.5" y2="41.25" width="0.254" layer="16"/>
+</signal>
+<signal name="DSYNC">
+<contactref element="U$1" pad="12"/>
 </signal>
 </signals>
 </board>
