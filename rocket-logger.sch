@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.4">
+<eagle version="6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -12862,6 +12862,197 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="wuerth-elektronik">
+<description>&lt;BR&gt;WE eiSos -- EMC &amp; Inductive Solutions&lt;br&gt;&lt;Hr&gt;
+&lt;BR&gt;&lt;BR&gt; 
+&lt;TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0&gt;
+&lt;TR&gt;   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;&lt;br&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt; &lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------------------------&lt;BR&gt;
+&lt;B&gt;&lt;I&gt;&lt;span style='font-size:26pt;
+  color:#FF6600;'&gt;WE &lt;/span&gt;&lt;/i&gt;&lt;/b&gt;
+&lt;BR&gt;
+      ---------------------------&lt;BR&gt;&lt;b&gt;Würth Elektronik&lt;/b&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+
+  &lt;TR&gt;
+    &lt;TD COLSPAN=7&gt;&amp;nbsp;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+  
+&lt;/TABLE&gt;
+&lt;B&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More than you expect&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;/B&gt;
+
+&lt;HR&gt;&lt;BR&gt;
+&lt;b&gt;Würth Elektronik eiSos GmbH &amp; Co. KG&lt;/b&gt;&lt;br&gt;
+EMC &amp; Inductive Solutions&lt;br&gt;
+
+Max-Eyth-Str.1&lt;br&gt;
+D-74638 Waldenburg&lt;br&gt;
+&lt;br&gt;
+Tel: +49 (0)7942-945-0&lt;br&gt;
+Fax:+49 (0)7942-945-400&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://www.we-online.com"&gt;http://www.we-online.com&lt;/a&gt;&lt;br&gt;
+&lt;a href="mailto:eisos@we-online.de"&gt;eisos@we-online.de&lt;/a&gt; &lt;BR&gt;&lt;BR&gt;
+&lt;br&gt;&lt;HR&gt;&lt;BR&gt;
+Neither CadSoft nor WE-eiSos does warrant that this library is error-free or &lt;br&gt;
+that it meets your specific requirements.&lt;br&gt;&lt;BR&gt;
+Please contact us for more information.&lt;br&gt;&lt;BR&gt;&lt;br&gt;
+&lt;hr&gt;
+Version 4,   July 12th 2005
+&lt;HR&gt;
+Copyright: Würth Elektronik eiSos</description>
+<packages>
+<package name="0201">
+<description>Multilayer SMD</description>
+<wire x1="-0.35" y1="0" x2="0.35" y2="0" width="0.04" layer="51"/>
+<wire x1="-0.5471" y1="0.1494" x2="0.5457" y2="0.1494" width="0.127" layer="51"/>
+<wire x1="0.5457" y1="0.1494" x2="0.5457" y2="-0.1412" width="0.127" layer="51"/>
+<wire x1="0.5457" y1="-0.1412" x2="-0.5484" y2="-0.1412" width="0.127" layer="51"/>
+<wire x1="-0.5484" y1="-0.1412" x2="-0.5484" y2="0.148" width="0.127" layer="51"/>
+<wire x1="-0.5484" y1="0.1494" x2="-0.5484" y2="0.148" width="0.127" layer="51"/>
+<smd name="1" x="-0.35" y="0" dx="0.4" dy="0.3" layer="1"/>
+<smd name="2" x="0.35" y="0" dx="0.4" dy="0.3" layer="1"/>
+<text x="-1.524" y="0.5715" size="0.6096" layer="27">&gt;VALUE</text>
+<text x="-1.524" y="-1.143" size="0.6096" layer="25">&gt;NAME</text>
+<rectangle x1="-0.025" y1="-0.05" x2="0.025" y2="0.05" layer="21"/>
+</package>
+<package name="0805">
+<description>Multilayer SMD</description>
+<wire x1="-1.3" y1="0" x2="1.2" y2="0" width="0.127" layer="21"/>
+<wire x1="-1.1" y1="0" x2="1.1" y2="0" width="0.127" layer="51"/>
+<wire x1="-1" y1="0.625" x2="1" y2="0.625" width="0.07" layer="21"/>
+<wire x1="1" y1="0.625" x2="1" y2="-0.625" width="0.07" layer="51"/>
+<wire x1="1" y1="-0.625" x2="-1" y2="-0.625" width="0.07" layer="21"/>
+<wire x1="-1" y1="-0.625" x2="-1" y2="0.625" width="0.07" layer="51"/>
+<smd name="1" x="-1.1" y="0" dx="1.2" dy="1" layer="1"/>
+<smd name="2" x="1.1" y="0" dx="1.2" dy="1" layer="1"/>
+<text x="-1.905" y="0.9525" size="0.6096" layer="27">&gt;VALUE</text>
+<text x="-1.905" y="-1.5875" size="0.6096" layer="25">&gt;NAME</text>
+<rectangle x1="-0.35" y1="-0.15" x2="0.35" y2="0.15" layer="21"/>
+</package>
+<package name="0402">
+<description>Multilayer SMD</description>
+<wire x1="-0.6" y1="0" x2="0.6" y2="0" width="0.127" layer="51"/>
+<wire x1="-0.9472" y1="0.2996" x2="0.9399" y2="0.2996" width="0.127" layer="51"/>
+<wire x1="0.9399" y1="0.2996" x2="0.9399" y2="-0.2924" width="0.127" layer="51"/>
+<wire x1="0.9399" y1="-0.2924" x2="-0.9472" y2="-0.2924" width="0.127" layer="51"/>
+<wire x1="-0.9472" y1="-0.2924" x2="-0.9472" y2="0.2996" width="0.127" layer="51"/>
+<smd name="1" x="-0.6" y="0" dx="0.7" dy="0.6" layer="1"/>
+<smd name="2" x="0.6" y="0" dx="0.7" dy="0.6" layer="1"/>
+<text x="-1.5875" y="0.635" size="0.6096" layer="27">&gt;VALUE</text>
+<text x="-1.5875" y="-1.27" size="0.6096" layer="25">&gt;NAME</text>
+<rectangle x1="-0.12" y1="-0.08" x2="0.12" y2="0.08" layer="21"/>
+</package>
+<package name="0603">
+<description>Multilayer SMD</description>
+<wire x1="-0.9" y1="0" x2="0.7" y2="0" width="0.127" layer="51"/>
+<wire x1="-0.8" y1="0.4" x2="0.8" y2="0.4" width="0.07" layer="21"/>
+<wire x1="0.8" y1="0.4" x2="0.8" y2="-0.4" width="0.07" layer="51"/>
+<wire x1="0.8" y1="-0.4" x2="-0.8" y2="-0.4" width="0.07" layer="21"/>
+<wire x1="-0.8" y1="-0.4" x2="-0.8" y2="0.4" width="0.07" layer="51"/>
+<smd name="1" x="-0.9" y="0" dx="0.85" dy="0.7" layer="1"/>
+<smd name="2" x="0.7" y="0" dx="0.85" dy="0.7" layer="1"/>
+<text x="-1.5875" y="0.635" size="0.6096" layer="27">&gt;VALUE</text>
+<text x="-1.5875" y="-1.27" size="0.6096" layer="25">&gt;NAME</text>
+<rectangle x1="-0.3" y1="-0.1" x2="0.1" y2="0.1" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="L">
+<text x="-3.81" y="-1.27" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-3.81" y="5.08" size="1.778" layer="95">&gt;NAME</text>
+<rectangle x1="-2.54" y1="1.27" x2="2.54" y2="3.81" layer="94"/>
+<pin name="1" x="-5.08" y="2.54" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="2" x="5.08" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="WE-MK" prefix="L" uservalue="yes">
+<description>SMD Multilayer Ceramic Inductors WE-MK
+
+- Windings printed on ceramic substrate
+- Extremely high SRF &gt; 15 GHz
+- Inductance is stable over temperature
+
+-- High frequency circuits
+-- Bluetooth
+-- Wireless LAN
+-- Filter circuits</description>
+<gates>
+<gate name="G$1" symbol="L" x="0" y="0"/>
+</gates>
+<devices>
+<device name="_0201" package="0201">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_0805" package="0805">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_0402" package="0402">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="_0603" package="0603">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12928,8 +13119,6 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <part name="SV1" library="con-lstb" deviceset="MA04-1" device=""/>
 <part name="R2" library="rcl" deviceset="R-EU_" device="R0402"/>
 <part name="R3" library="rcl" deviceset="R-EU_" device="R0402"/>
-<part name="GND23" library="supply1" deviceset="GND" device=""/>
-<part name="GND24" library="supply1" deviceset="GND" device=""/>
 <part name="C15" library="resistor" deviceset="C-EU" device="C0402" value="10u"/>
 <part name="C16" library="resistor" deviceset="C-EU" device="C0402" value="100n"/>
 <part name="GND25" library="SparkFun" deviceset="GND" device=""/>
@@ -12990,6 +13179,11 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <part name="S4" library="SparkFun" deviceset="SWITCH-MOMENTARY-2" device="SMD"/>
 <part name="+3V12" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND45" library="SparkFun" deviceset="GND" device=""/>
+<part name="C26" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="GND46" library="SparkFun" deviceset="GND" device=""/>
+<part name="GND23" library="supply1" deviceset="GND" device=""/>
+<part name="GND24" library="supply1" deviceset="GND" device=""/>
+<part name="L1" library="wuerth-elektronik" deviceset="WE-MK" device="_0603"/>
 </parts>
 <sheets>
 <sheet>
@@ -13010,8 +13204,8 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <instance part="IC1" gate="G$1" x="53.34" y="160.02"/>
 <instance part="X1" gate="G$1" x="-29.21" y="170.18" rot="MR0"/>
 <instance part="U1" gate="G$1" x="124.46" y="226.06"/>
-<instance part="LED1" gate="G$1" x="86.36" y="149.86" rot="R90"/>
-<instance part="LED2" gate="G$1" x="86.36" y="147.32" rot="R90"/>
+<instance part="LED1" gate="G$1" x="100.33" y="149.86" rot="R90"/>
+<instance part="LED2" gate="G$1" x="100.33" y="146.05" rot="R90"/>
 <instance part="IC2" gate="G$1" x="165.1" y="220.98"/>
 <instance part="C1" gate="G$1" x="48.26" y="195.58" rot="R270"/>
 <instance part="C2" gate="G$1" x="40.64" y="208.28" rot="MR0"/>
@@ -13055,11 +13249,9 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <instance part="GND21" gate="1" x="-15.24" y="154.94" rot="R270"/>
 <instance part="X3" gate="G1" x="-49.53" y="172.72"/>
 <instance part="GND22" gate="1" x="-46.99" y="167.64"/>
-<instance part="SV1" gate="1" x="-22.86" y="128.27"/>
-<instance part="R2" gate="G$1" x="96.52" y="149.86"/>
-<instance part="R3" gate="G$1" x="96.52" y="147.32"/>
-<instance part="GND23" gate="1" x="104.14" y="147.32" rot="R90"/>
-<instance part="GND24" gate="1" x="104.14" y="149.86" rot="R90"/>
+<instance part="SV1" gate="1" x="-22.86" y="115.57"/>
+<instance part="R2" gate="G$1" x="92.71" y="149.86"/>
+<instance part="R3" gate="G$1" x="92.71" y="146.05"/>
 <instance part="C15" gate="G$1" x="231.14" y="182.88" rot="MR270"/>
 <instance part="C16" gate="G$1" x="227.33" y="187.96" rot="MR270"/>
 <instance part="GND25" gate="1" x="226.06" y="182.88" smashed="yes" rot="R270"/>
@@ -13117,9 +13309,14 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <instance part="U$5" gate="G$1" x="173.99" y="88.9"/>
 <instance part="U$6" gate="G$1" x="176.53" y="128.27"/>
 <instance part="SG1" gate="G$1" x="121.92" y="113.03"/>
-<instance part="S4" gate="G$1" x="87.63" y="189.23"/>
+<instance part="S4" gate="G$1" x="88.9" y="171.45" rot="R180"/>
 <instance part="+3V12" gate="G$1" x="194.31" y="130.81" rot="R270"/>
 <instance part="GND45" gate="1" x="158.75" y="123.19" smashed="yes" rot="R270"/>
+<instance part="C26" gate="G$1" x="139.7" y="233.68" rot="MR0"/>
+<instance part="GND46" gate="1" x="139.7" y="238.76" smashed="yes" rot="R180"/>
+<instance part="GND23" gate="1" x="107.95" y="149.86" rot="R90"/>
+<instance part="GND24" gate="1" x="107.95" y="146.05" rot="R90"/>
+<instance part="L1" gate="G$1" x="26.67" y="196.85"/>
 </instances>
 <busses>
 </busses>
@@ -13152,8 +13349,9 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <wire x1="-5.08" y1="198.12" x2="0" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="5.08" y1="198.12" x2="10.16" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="198.12" x2="20.32" y2="198.12" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="198.12" x2="20.32" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="198.12" x2="20.32" y2="199.39" width="0.1524" layer="91"/>
 <pinref part="C6" gate="G$1" pin="2"/>
+<wire x1="20.32" y1="199.39" x2="20.32" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="15.24" y1="200.66" x2="15.24" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="C7" gate="G$1" pin="2"/>
 <wire x1="15.24" y1="198.12" x2="10.16" y2="198.12" width="0.1524" layer="91"/>
@@ -13174,6 +13372,9 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <wire x1="48.26" y1="190.5" x2="22.86" y2="190.5" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="190.5" x2="22.86" y2="187.96" width="0.1524" layer="91"/>
 <junction x="22.86" y="187.96"/>
+<pinref part="L1" gate="G$1" pin="1"/>
+<wire x1="21.59" y1="199.39" x2="20.32" y2="199.39" width="0.1524" layer="91"/>
+<junction x="20.32" y="199.39"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -13277,14 +13478,6 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="GND22" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="GND23" gate="1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<pinref part="GND24" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="C15" gate="G$1" pin="1"/>
 <pinref part="GND25" gate="1" pin="GND"/>
 </segment>
@@ -13361,6 +13554,18 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="U$6" gate="G$1" pin="GND"/>
 <pinref part="GND45" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="C26" gate="G$1" pin="1"/>
+<pinref part="GND46" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="LED1" gate="G$1" pin="C"/>
+<pinref part="GND23" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="LED2" gate="G$1" pin="C"/>
+<pinref part="GND24" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -13390,6 +13595,7 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <wire x1="139.7" y1="214.63" x2="139.7" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="140.97" y1="214.63" x2="139.7" y2="214.63" width="0.1524" layer="91"/>
 <junction x="139.7" y="214.63"/>
+<pinref part="C26" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -13484,13 +13690,17 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="45.72" y1="203.2" x2="45.72" y2="200.66" width="0.1524" layer="91"/>
 <wire x1="40.64" y1="200.66" x2="33.02" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="200.66" x2="33.02" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="200.66" x2="33.02" y2="199.39" width="0.1524" layer="91"/>
 <junction x="33.02" y="187.96"/>
 <junction x="35.56" y="187.96"/>
 <junction x="40.64" y="200.66"/>
 <junction x="45.72" y="200.66"/>
 <pinref part="+3V9" gate="G$1" pin="+3V3"/>
 <junction x="33.02" y="200.66"/>
+<pinref part="L1" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="199.39" x2="33.02" y2="187.96" width="0.1524" layer="91"/>
+<wire x1="31.75" y1="199.39" x2="33.02" y2="199.39" width="0.1524" layer="91"/>
+<junction x="33.02" y="199.39"/>
 </segment>
 <segment>
 <pinref part="R6" gate="G$1" pin="2"/>
@@ -13553,18 +13763,6 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <wire x1="-13.97" y1="172.72" x2="-16.51" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="X1" gate="G$1" pin="BAL2"/>
 <wire x1="-16.51" y1="170.18" x2="-21.59" y2="170.18" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="LED1" gate="G$1" pin="C"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="LED2" gate="G$1" pin="C"/>
-<pinref part="R3" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$13" class="0">
@@ -13673,13 +13871,13 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 </net>
 <net name="N$16" class="0">
 <segment>
-<pinref part="LED1" gate="G$1" pin="A"/>
-<wire x1="83.82" y1="149.86" x2="80.01" y2="149.86" width="0.1524" layer="91"/>
 <wire x1="80.01" y1="149.86" x2="77.47" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="77.47" y1="147.32" x2="77.47" y2="135.89" width="0.1524" layer="91"/>
 <wire x1="77.47" y1="135.89" x2="71.12" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="P3.0"/>
 <wire x1="71.12" y1="129.54" x2="66.04" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="80.01" y1="149.86" x2="87.63" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -13687,9 +13885,10 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="IC1" gate="G$1" pin="P3.1"/>
 <wire x1="66.04" y1="127" x2="72.39" y2="127" width="0.1524" layer="91"/>
 <wire x1="72.39" y1="127" x2="80.01" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
 <wire x1="80.01" y1="134.62" x2="80.01" y2="143.51" width="0.1524" layer="91"/>
-<wire x1="80.01" y1="143.51" x2="83.82" y2="147.32" width="0.1524" layer="91"/>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="87.63" y1="146.05" x2="82.55" y2="146.05" width="0.1524" layer="91"/>
+<wire x1="82.55" y1="146.05" x2="80.01" y2="143.51" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -13888,6 +14087,45 @@ Source: Panbasonic .. 2SC1685.pdf</description>
 <pinref part="IC1" gate="G$1" pin="P1.7"/>
 <wire x1="66.04" y1="157.48" x2="72.39" y2="157.48" width="0.1524" layer="91"/>
 <label x="71.12" y="157.48" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$23" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="TEST"/>
+<wire x1="-2.54" y1="119.38" x2="-7.62" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="SV1" gate="1" pin="4"/>
+<wire x1="-15.24" y1="118.11" x2="-7.62" y2="118.11" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="118.11" x2="-7.62" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$26" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="RST"/>
+<wire x1="-15.24" y1="115.57" x2="-2.54" y2="115.57" width="0.1524" layer="91"/>
+<wire x1="-2.54" y1="115.57" x2="-2.54" y2="114.3" width="0.1524" layer="91"/>
+<pinref part="SV1" gate="1" pin="3"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="R2" gate="G$1" pin="2"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+</segment>
+</net>
+<net name="N$28" class="0">
+<segment>
+<pinref part="IC1" gate="G$1" pin="P2.1"/>
+<wire x1="66.04" y1="149.86" x2="68.58" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="149.86" x2="68.58" y2="161.29" width="0.1524" layer="91"/>
+<pinref part="S4" gate="G$1" pin="2"/>
+<wire x1="68.58" y1="161.29" x2="73.66" y2="161.29" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="161.29" x2="83.82" y2="171.45" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
