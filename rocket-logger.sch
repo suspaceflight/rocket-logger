@@ -13822,7 +13822,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="D4" library="diode" deviceset="DIODE-" device="SOD523"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0402"/>
 <part name="U$5" library="SparkFun" deviceset="SPI_FLASH-X25XX" device="SMD"/>
-<part name="U$6" library="SparkFun" deviceset="SPI_FLASH-X25XX" device="SMD1"/>
+<part name="U$6" library="SparkFun" deviceset="SPI_FLASH-X25XX" device="SMD"/>
 <part name="SG1" library="buzzer" deviceset="EFB?" device="RD24C411"/>
 <part name="S4" library="SparkFun" deviceset="SWITCH-MOMENTARY-2" device="SMD"/>
 <part name="+3V12" library="supply1" deviceset="+3V3" device=""/>
@@ -13842,6 +13842,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="GND49" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND50" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND51" library="SparkFun" deviceset="GND" device=""/>
+<part name="C28" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="R10" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="GND52" library="supply1" deviceset="GND" device=""/>
+<part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -13851,6 +13855,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <text x="209.55" y="41.91" size="1.778" layer="91">connect -&gt; ?</text>
 <text x="259.08" y="219.71" size="1.778" layer="91" rot="R90">connect -&gt; ?</text>
 <text x="111.76" y="142.24" size="1.778" layer="91" rot="R90">change to tri colour</text>
+<text x="171.45" y="115.57" size="1.778" layer="91">check pinout</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="231.14" y="236.22"/>
@@ -13979,6 +13984,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="GND49" gate="1" x="132.08" y="184.15" smashed="yes"/>
 <instance part="GND50" gate="1" x="218.44" y="218.44" smashed="yes" rot="R270"/>
 <instance part="GND51" gate="1" x="218.44" y="49.53" smashed="yes" rot="R270"/>
+<instance part="C28" gate="G$1" x="-10.16" y="110.49" rot="MR180"/>
+<instance part="R10" gate="G$1" x="-10.16" y="125.73" rot="R90"/>
+<instance part="GND52" gate="1" x="-10.16" y="105.41"/>
+<instance part="+3V13" gate="G$1" x="-10.16" y="133.35"/>
 </instances>
 <busses>
 </busses>
@@ -14251,6 +14260,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="223.52" y1="49.53" x2="220.98" y2="49.53" width="0.1524" layer="91"/>
 <pinref part="GND51" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="C28" gate="G$1" pin="1"/>
+<pinref part="GND52" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -14401,6 +14414,10 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <segment>
 <pinref part="U$6" gate="G$1" pin="VCC"/>
 <pinref part="+3V12" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="R10" gate="G$1" pin="2"/>
+<pinref part="+3V13" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -14748,9 +14765,14 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <net name="N$26" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="RST"/>
-<wire x1="-15.24" y1="115.57" x2="-2.54" y2="115.57" width="0.1524" layer="91"/>
+<wire x1="-15.24" y1="115.57" x2="-10.16" y2="115.57" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="115.57" x2="-2.54" y2="115.57" width="0.1524" layer="91"/>
 <wire x1="-2.54" y1="115.57" x2="-2.54" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="SV1" gate="1" pin="3"/>
+<pinref part="C28" gate="G$1" pin="2"/>
+<junction x="-10.16" y="115.57"/>
+<pinref part="R10" gate="G$1" pin="1"/>
+<wire x1="-10.16" y1="120.65" x2="-10.16" y2="115.57" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$9" class="0">
