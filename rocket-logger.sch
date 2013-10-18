@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.4">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13846,6 +13846,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <part name="R10" library="rcl" deviceset="R-EU_" device="R0402"/>
 <part name="GND52" library="supply1" deviceset="GND" device=""/>
 <part name="+3V13" library="supply1" deviceset="+3V3" device=""/>
+<part name="LED3" library="SparkFun" deviceset="LED" device="0603"/>
+<part name="+3V14" library="supply1" deviceset="+3V3" device=""/>
+<part name="LED4" library="SparkFun" deviceset="LED" device="0603"/>
+<part name="+3V15" library="supply1" deviceset="+3V3" device=""/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R12" library="rcl" deviceset="R-EU_" device="R0402"/>
 </parts>
 <sheets>
 <sheet>
@@ -13988,6 +13994,12 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <instance part="R10" gate="G$1" x="-10.16" y="125.73" rot="R90"/>
 <instance part="GND52" gate="1" x="-10.16" y="105.41"/>
 <instance part="+3V13" gate="G$1" x="-10.16" y="133.35"/>
+<instance part="LED3" gate="G$1" x="102.87" y="153.67" rot="R270"/>
+<instance part="+3V14" gate="G$1" x="109.22" y="153.67" rot="R270"/>
+<instance part="LED4" gate="G$1" x="102.87" y="142.24" rot="R270"/>
+<instance part="+3V15" gate="G$1" x="109.22" y="142.24" rot="R270"/>
+<instance part="R11" gate="G$1" x="92.71" y="142.24"/>
+<instance part="R12" gate="G$1" x="92.71" y="153.67"/>
 </instances>
 <busses>
 </busses>
@@ -14419,6 +14431,16 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R10" gate="G$1" pin="2"/>
 <pinref part="+3V13" gate="G$1" pin="+3V3"/>
 </segment>
+<segment>
+<pinref part="+3V14" gate="G$1" pin="+3V3"/>
+<pinref part="LED3" gate="G$1" pin="A"/>
+<wire x1="106.68" y1="153.67" x2="105.41" y2="153.67" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="+3V15" gate="G$1" pin="+3V3"/>
+<pinref part="LED4" gate="G$1" pin="A"/>
+<wire x1="106.68" y1="142.24" x2="105.41" y2="142.24" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="N$3" class="0">
 <segment>
@@ -14581,6 +14603,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="71.12" y1="129.54" x2="66.04" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="80.01" y1="149.86" x2="87.63" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="R12" gate="G$1" pin="1"/>
+<wire x1="87.63" y1="153.67" x2="87.63" y2="149.86" width="0.1524" layer="91"/>
+<junction x="87.63" y="149.86"/>
 </segment>
 </net>
 <net name="N$17" class="0">
@@ -14592,6 +14617,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="87.63" y1="146.05" x2="82.55" y2="146.05" width="0.1524" layer="91"/>
 <wire x1="82.55" y1="146.05" x2="80.01" y2="143.51" width="0.1524" layer="91"/>
+<pinref part="R11" gate="G$1" pin="1"/>
+<wire x1="87.63" y1="142.24" x2="87.63" y2="146.05" width="0.1524" layer="91"/>
+<junction x="87.63" y="146.05"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -14775,18 +14803,6 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="-10.16" y1="120.65" x2="-10.16" y2="115.57" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<pinref part="LED1" gate="G$1" pin="A"/>
-</segment>
-</net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="R3" gate="G$1" pin="2"/>
-<pinref part="LED2" gate="G$1" pin="A"/>
-</segment>
-</net>
 <net name="N$28" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="P2.1"/>
@@ -14826,6 +14842,30 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <pinref part="IC1" gate="G$1" pin="P3.3"/>
 <wire x1="66.04" y1="121.92" x2="76.2" y2="121.92" width="0.1524" layer="91"/>
 <label x="74.93" y="121.92" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$18" class="0">
+<segment>
+<pinref part="LED3" gate="G$1" pin="C"/>
+<pinref part="R12" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$20" class="0">
+<segment>
+<pinref part="R3" gate="G$1" pin="2"/>
+<pinref part="LED2" gate="G$1" pin="A"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="LED4" gate="G$1" pin="C"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="R2" gate="G$1" pin="2"/>
+<pinref part="LED1" gate="G$1" pin="A"/>
 </segment>
 </net>
 </nets>
