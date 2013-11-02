@@ -65,12 +65,15 @@
 <layer number="105" name="tPlate" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="106" name="bPlate" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="107" name="Crop" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="108" name="tplace-old" color="10" fill="1" visible="yes" active="yes"/>
+<layer number="109" name="ref-old" color="11" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="yes" active="yes"/>
 <layer number="202" name="202bmp" color="3" fill="10" visible="yes" active="yes"/>
@@ -2521,19 +2524,6 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 </symbol>
-<symbol name="MAX1555">
-<wire x1="-10.16" y1="5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
-<text x="-10.16" y="5.842" size="1.778" layer="95">&gt;Name</text>
-<text x="-10.16" y="-7.62" size="1.778" layer="96">&gt;Value</text>
-<pin name="USB" x="-15.24" y="2.54" length="middle"/>
-<pin name="GND" x="-15.24" y="0" length="middle"/>
-<pin name="CHG" x="-15.24" y="-2.54" length="middle"/>
-<pin name="BATT" x="12.7" y="2.54" length="middle" rot="R180"/>
-<pin name="DC" x="12.7" y="-2.54" length="middle" rot="R180"/>
-</symbol>
 <symbol name="LED">
 <wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
 <wire x1="0" y1="-2.54" x2="-1.27" y2="0" width="0.254" layer="94"/>
@@ -2757,27 +2747,6 @@ Standard 2-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MAX1555" prefix="U">
-<description>&lt;b&gt;MAX1555 Lithium Charger IC&lt;/b&gt;
-SOT-23 Lithium Polymer charging IC. Schematic element and footprint proven. Spark Fun Electronics SKU : COM-00674</description>
-<gates>
-<gate name="G$1" symbol="MAX1555" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23-5">
-<connects>
-<connect gate="G$1" pin="BATT" pad="5"/>
-<connect gate="G$1" pin="CHG" pad="3"/>
-<connect gate="G$1" pin="DC" pad="4"/>
-<connect gate="G$1" pin="GND" pad="2"/>
-<connect gate="G$1" pin="USB" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -14819,6 +14788,78 @@ Source: http://www.jst.com .. eZH.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="SparkFun-PowerIC">
+<description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
+In this library you'll find drivers, regulators, and amplifiers.&lt;br&gt;&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is the end user's responsibility to ensure correctness and suitablity for a given componet or application. If you enjoy using this library, please buy one of our products at www.sparkfun.com.
+&lt;br&gt;&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; CC v3.0 Share-Alike You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="SOT23-5">
+<description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;</description>
+<wire x1="1.4224" y1="0.4294" x2="1.4224" y2="-0.4294" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="-0.8" x2="-1.4" y2="-0.8" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="-0.4294" x2="-1.4224" y2="0.4294" width="0.2032" layer="21"/>
+<wire x1="-1.4" y1="0.8" x2="1.4" y2="0.8" width="0.1524" layer="51"/>
+<wire x1="-0.2684" y1="0.8104" x2="0.2684" y2="0.8104" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="0.8" x2="1.4" y2="-0.8" width="0.1524" layer="51"/>
+<wire x1="-1.4" y1="0.8" x2="-1.4" y2="-0.8" width="0.1524" layer="51"/>
+<smd name="1" x="-0.95" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="2" x="0" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="3" x="0.95" y="-1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="4" x="0.95" y="1.3001" dx="0.55" dy="1.2" layer="1"/>
+<smd name="5" x="-0.95" y="1.3001" dx="0.55" dy="1.2" layer="1"/>
+<text x="-0.889" y="2.159" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-0.9525" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
+<rectangle x1="-1.2" y1="-1.5" x2="-0.7" y2="-0.85" layer="51"/>
+<rectangle x1="-0.25" y1="-1.5" x2="0.25" y2="-0.85" layer="51"/>
+<rectangle x1="0.7" y1="-1.5" x2="1.2" y2="-0.85" layer="51"/>
+<rectangle x1="0.7" y1="0.85" x2="1.2" y2="1.5" layer="51"/>
+<rectangle x1="-1.2" y1="0.85" x2="-0.7" y2="1.5" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="MCP73831">
+<wire x1="-7.62" y1="5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-5.08" x2="-7.62" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-5.08" x2="-7.62" y2="5.08" width="0.254" layer="94"/>
+<text x="-7.62" y="5.588" size="1.778" layer="95">&gt;Name</text>
+<text x="-7.62" y="-7.62" size="1.778" layer="96">&gt;Value</text>
+<pin name="VIN" x="-10.16" y="2.54" length="short" direction="pwr"/>
+<pin name="STAT" x="-10.16" y="-2.54" length="short" direction="out"/>
+<pin name="VBAT" x="10.16" y="2.54" length="short" direction="pwr" rot="R180"/>
+<pin name="PROG" x="10.16" y="0" length="short" direction="in" rot="R180"/>
+<pin name="VSS" x="10.16" y="-2.54" length="short" direction="pwr" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="MCP73831" prefix="U">
+<description>Miniature single cell, fully integrated Li-Ion, Li-polymer charge management controller&lt;br&gt;
+http://ww1.microchip.com/downloads/en/DeviceDoc/21984a.pdf&lt;br&gt;
+IC-09995</description>
+<gates>
+<gate name="G$1" symbol="MCP73831" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT23-5">
+<connects>
+<connect gate="G$1" pin="PROG" pad="5"/>
+<connect gate="G$1" pin="STAT" pad="1"/>
+<connect gate="G$1" pin="VBAT" pad="3"/>
+<connect gate="G$1" pin="VIN" pad="4"/>
+<connect gate="G$1" pin="VSS" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="IC-09995"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -14836,7 +14877,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <part name="JP1" library="SparkFun" deviceset="M02" device="-JST-2MM-SMT"/>
 <part name="IC1" library="Mine" deviceset="CC430F513X" device=""/>
 <part name="X1" library="Mine" deviceset="0896BM15A0001" device=""/>
-<part name="U1" library="SparkFun" deviceset="MAX1555" device=""/>
 <part name="LED1" library="SparkFun" deviceset="LED" device="0603"/>
 <part name="LED2" library="SparkFun" deviceset="LED" device="0603"/>
 <part name="IC2" library="SparkFun" deviceset="V_REG_TPS76433" device="SOT23-5"/>
@@ -14864,7 +14904,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="X2" library="SparkFun" deviceset="USB" device="-MICROB"/>
 <part name="GND32" library="SparkFun" deviceset="GND" device=""/>
-<part name="GND13" library="SparkFun" deviceset="GND" device=""/>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND15" library="SparkFun" deviceset="GND" device=""/>
@@ -14952,7 +14991,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <part name="GND48" library="SparkFun" deviceset="GND" device=""/>
 <part name="C27" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND49" library="SparkFun" deviceset="GND" device=""/>
-<part name="GND50" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND51" library="SparkFun" deviceset="GND" device=""/>
 <part name="C28" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="R0402"/>
@@ -14980,6 +15018,14 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <part name="GND55" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND56" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND57" library="supply1" deviceset="GND" device=""/>
+<part name="U2" library="SparkFun-PowerIC" deviceset="MCP73831" device=""/>
+<part name="R14" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="GND13" library="SparkFun" deviceset="GND" device=""/>
+<part name="GND58" library="SparkFun" deviceset="GND" device=""/>
+<part name="C30" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="GND59" library="SparkFun" deviceset="GND" device=""/>
+<part name="+3V17" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3V18" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14999,7 +15045,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <instance part="JP1" gate="G$1" x="147.32" y="248.92" rot="R270"/>
 <instance part="IC1" gate="G$1" x="53.34" y="160.02"/>
 <instance part="X1" gate="G$1" x="-29.21" y="170.18" rot="MR0"/>
-<instance part="U1" gate="G$1" x="124.46" y="226.06"/>
 <instance part="LED1" gate="G$1" x="100.33" y="149.86" rot="R90"/>
 <instance part="LED2" gate="G$1" x="100.33" y="146.05" rot="R90"/>
 <instance part="IC2" gate="G$1" x="168.91" y="220.98"/>
@@ -15027,7 +15072,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <instance part="GND12" gate="1" x="27.94" y="99.06"/>
 <instance part="X2" gate="G$1" x="96.52" y="229.87" rot="R180"/>
 <instance part="GND32" gate="1" x="100.33" y="238.76" smashed="yes" rot="R180"/>
-<instance part="GND13" gate="1" x="106.68" y="226.06" smashed="yes" rot="R270"/>
 <instance part="C11" gate="G$1" x="105.41" y="233.68" rot="MR0"/>
 <instance part="GND14" gate="1" x="105.41" y="238.76" smashed="yes" rot="R180"/>
 <instance part="GND15" gate="1" x="147.32" y="233.68" smashed="yes"/>
@@ -15115,7 +15159,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <instance part="GND48" gate="1" x="139.7" y="181.61" smashed="yes"/>
 <instance part="C27" gate="G$1" x="132.08" y="191.77" rot="MR0"/>
 <instance part="GND49" gate="1" x="132.08" y="184.15" smashed="yes"/>
-<instance part="GND50" gate="1" x="218.44" y="218.44" smashed="yes" rot="R270"/>
 <instance part="GND51" gate="1" x="218.44" y="49.53" smashed="yes" rot="R270"/>
 <instance part="C28" gate="G$1" x="-10.16" y="110.49" rot="MR180"/>
 <instance part="R10" gate="G$1" x="-10.16" y="125.73" rot="R90"/>
@@ -15149,6 +15192,14 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <instance part="GND55" gate="1" x="167.64" y="243.84" smashed="yes"/>
 <instance part="GND56" gate="1" x="180.34" y="243.84" smashed="yes"/>
 <instance part="GND57" gate="1" x="96.52" y="171.45" rot="R90"/>
+<instance part="U2" gate="G$1" x="121.92" y="226.06"/>
+<instance part="R14" gate="G$1" x="137.16" y="215.9" rot="R270"/>
+<instance part="GND13" gate="1" x="134.62" y="223.52" smashed="yes" rot="R90"/>
+<instance part="GND58" gate="1" x="137.16" y="208.28" smashed="yes"/>
+<instance part="C30" gate="G$1" x="191.77" y="133.35" rot="MR180"/>
+<instance part="GND59" gate="1" x="191.77" y="140.97" smashed="yes" rot="R180"/>
+<instance part="+3V17" gate="G$1" x="220.98" y="226.06" rot="R90"/>
+<instance part="+3V18" gate="G$1" x="220.98" y="218.44" rot="R90"/>
 </instances>
 <busses>
 </busses>
@@ -15263,10 +15314,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <wire x1="99.06" y1="229.87" x2="100.33" y2="229.87" width="0.1524" layer="91"/>
 <pinref part="GND32" gate="1" pin="GND"/>
 <wire x1="100.33" y1="229.87" x2="100.33" y2="236.22" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="U1" gate="G$1" pin="GND"/>
-<pinref part="GND13" gate="1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="C11" gate="G$1" pin="1"/>
@@ -15413,11 +15460,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <pinref part="GND49" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="SA0_SDO"/>
-<wire x1="223.52" y1="218.44" x2="220.98" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="GND50" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="U$3" gate="G$1" pin="SA0"/>
 <wire x1="223.52" y1="49.53" x2="220.98" y2="49.53" width="0.1524" layer="91"/>
 <pinref part="GND51" gate="1" pin="GND"/>
@@ -15446,6 +15488,18 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <pinref part="S4" gate="G$1" pin="1"/>
 <pinref part="GND57" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="U2" gate="G$1" pin="VSS"/>
+<pinref part="GND13" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R14" gate="G$1" pin="2"/>
+<pinref part="GND58" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="C30" gate="G$1" pin="2"/>
+<pinref part="GND59" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -15453,7 +15507,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <wire x1="99.06" y1="227.33" x2="102.87" y2="227.33" width="0.1524" layer="91"/>
 <wire x1="102.87" y1="227.33" x2="105.41" y2="227.33" width="0.1524" layer="91"/>
 <wire x1="105.41" y1="227.33" x2="105.41" y2="228.6" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="USB"/>
 <wire x1="105.41" y1="228.6" x2="109.22" y2="228.6" width="0.1524" layer="91"/>
 <pinref part="C11" gate="G$1" pin="2"/>
 <junction x="105.41" y="228.6"/>
@@ -15465,13 +15518,13 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <wire x1="156.21" y1="236.22" x2="156.21" y2="254" width="0.1524" layer="91"/>
 <wire x1="156.21" y1="254" x2="109.22" y2="254" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="254" x2="109.22" y2="228.6" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="VIN"/>
+<wire x1="111.76" y1="228.6" x2="109.22" y2="228.6" width="0.1524" layer="91"/>
 <junction x="109.22" y="228.6"/>
 </segment>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="U1" gate="G$1" pin="BATT"/>
-<wire x1="137.16" y1="228.6" x2="139.7" y2="228.6" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="228.6" x2="149.86" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="241.3" x2="149.86" y2="228.6" width="0.1524" layer="91"/>
@@ -15494,6 +15547,10 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <pinref part="U$8" gate="G$1" pin="1"/>
 <wire x1="165.1" y1="241.3" x2="177.8" y2="241.3" width="0.1524" layer="91"/>
 <wire x1="177.8" y1="241.3" x2="177.8" y2="246.38" width="0.1524" layer="91"/>
+<pinref part="U2" gate="G$1" pin="VBAT"/>
+<wire x1="132.08" y1="228.6" x2="139.7" y2="228.6" width="0.1524" layer="91"/>
+<junction x="149.86" y="241.3"/>
+<junction x="165.1" y="241.3"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -15611,6 +15668,9 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <segment>
 <pinref part="U$6" gate="G$1" pin="VCC"/>
 <pinref part="+3V12" gate="G$1" pin="+3V3"/>
+<pinref part="C30" gate="G$1" pin="1"/>
+<junction x="191.77" y="130.81"/>
+<pinref part="C30" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="R10" gate="G$1" pin="2"/>
@@ -15629,6 +15689,14 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <segment>
 <pinref part="+3V16" gate="G$1" pin="+3V3"/>
 <pinref part="JP3" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="CS"/>
+<pinref part="+3V17" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="SA0_SDO"/>
+<pinref part="+3V18" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -16066,12 +16134,6 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <pinref part="R12" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$10" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="CHG"/>
-<pinref part="R13" gate="G$1" pin="1"/>
-</segment>
-</net>
 <net name="N$18" class="0">
 <segment>
 <pinref part="R13" gate="G$1" pin="2"/>
@@ -16090,6 +16152,21 @@ Source: http://www.jst.com .. eZH.pdf</description>
 <pinref part="C29" gate="G$1" pin="2"/>
 <wire x1="161.29" y1="229.87" x2="161.29" y2="228.6" width="0.1524" layer="91"/>
 <junction x="161.29" y="228.6"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="STAT"/>
+<pinref part="R13" gate="G$1" pin="1"/>
+<wire x1="111.76" y1="223.52" x2="109.22" y2="223.52" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="PROG"/>
+<pinref part="R14" gate="G$1" pin="1"/>
+<wire x1="132.08" y1="226.06" x2="137.16" y2="226.06" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="226.06" x2="137.16" y2="220.98" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
