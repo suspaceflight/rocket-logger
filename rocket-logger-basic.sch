@@ -13464,7 +13464,6 @@ IC-09995</description>
 </classes>
 <parts>
 <part name="U$4" library="Mine" deviceset="MPL5115A2" device=""/>
-<part name="JP1" library="SparkFun" deviceset="M02" device="-JST-2MM-SMT"/>
 <part name="IC1" library="Mine" deviceset="CC430F513X" device=""/>
 <part name="X1" library="Mine" deviceset="0896BM15A0001" device=""/>
 <part name="LED1" library="SparkFun" deviceset="LED" device="0603"/>
@@ -13496,7 +13495,6 @@ IC-09995</description>
 <part name="GND32" library="SparkFun" deviceset="GND" device=""/>
 <part name="C11" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
-<part name="GND15" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND16" library="SparkFun" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="C12" library="resistor" deviceset="C-EU" device="C0402"/>
@@ -13577,7 +13575,7 @@ IC-09995</description>
 <sheets>
 <sheet>
 <plain>
-<text x="144.78" y="248.92" size="1.778" layer="91">CHECK!!!</text>
+<text x="152.4" y="255.27" size="1.778" layer="91">CHECK!!!</text>
 <text x="209.55" y="153.67" size="1.778" layer="91">connect -&gt; ?</text>
 <text x="232.664" y="144.018" size="1.778" layer="91">3</text>
 <text x="109.22" y="245.11" size="1.778" layer="91">what happens when charging?</text>
@@ -13585,7 +13583,6 @@ IC-09995</description>
 </plain>
 <instances>
 <instance part="U$4" gate="G$1" x="240.03" y="161.29"/>
-<instance part="JP1" gate="G$1" x="147.32" y="243.84" rot="R270"/>
 <instance part="IC1" gate="G$1" x="53.34" y="160.02"/>
 <instance part="X1" gate="G$1" x="-29.21" y="170.18" rot="MR0"/>
 <instance part="LED1" gate="G$1" x="100.33" y="149.86" rot="R90"/>
@@ -13617,7 +13614,6 @@ IC-09995</description>
 <instance part="GND32" gate="1" x="100.33" y="238.76" smashed="yes" rot="R180"/>
 <instance part="C11" gate="G$1" x="105.41" y="233.68" rot="MR0"/>
 <instance part="GND14" gate="1" x="105.41" y="238.76" smashed="yes" rot="R180"/>
-<instance part="GND15" gate="1" x="147.32" y="233.68" smashed="yes"/>
 <instance part="GND16" gate="1" x="177.8" y="218.44" smashed="yes" rot="R90"/>
 <instance part="+3V1" gate="G$1" x="186.69" y="228.6" rot="R270"/>
 <instance part="C12" gate="G$1" x="179.07" y="234.95" rot="MR0"/>
@@ -13684,10 +13680,10 @@ IC-09995</description>
 <instance part="D1" gate="G$1" x="128.27" y="303.53"/>
 <instance part="Q2" gate="G$1" x="137.16" y="294.64" rot="MR90"/>
 <instance part="R12" gate="G$1" x="138.43" y="267.97" rot="R270"/>
-<instance part="U$1" gate="G$1" x="160.02" y="248.92" rot="R270"/>
-<instance part="U$2" gate="G$1" x="170.18" y="248.92" rot="R270"/>
-<instance part="GND31" gate="1" x="172.72" y="238.76" smashed="yes"/>
-<instance part="GND33" gate="1" x="162.56" y="238.76" smashed="yes"/>
+<instance part="U$1" gate="G$1" x="149.86" y="248.92" rot="R270"/>
+<instance part="U$2" gate="G$1" x="162.56" y="248.92" rot="R270"/>
+<instance part="GND31" gate="1" x="165.1" y="238.76" smashed="yes"/>
+<instance part="GND33" gate="1" x="152.4" y="238.76" smashed="yes"/>
 <instance part="U3" gate="G$1" x="119.38" y="226.06"/>
 <instance part="R13" gate="G$1" x="132.08" y="214.63" rot="R270"/>
 <instance part="GND34" gate="1" x="135.89" y="223.52" smashed="yes" rot="R90"/>
@@ -13814,10 +13810,6 @@ IC-09995</description>
 <pinref part="GND14" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="G$1" pin="1"/>
-<pinref part="GND15" gate="1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="IC2" gate="G$1" pin="GND"/>
 <pinref part="GND16" gate="1" pin="GND"/>
 </segment>
@@ -13926,7 +13918,6 @@ IC-09995</description>
 </net>
 <net name="N$2" class="0">
 <segment>
-<pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="139.7" y1="228.6" x2="149.86" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="236.22" x2="149.86" y2="228.6" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="228.6" x2="157.48" y2="228.6" width="0.1524" layer="91"/>
@@ -13938,13 +13929,11 @@ IC-09995</description>
 <pinref part="R8" gate="G$1" pin="1"/>
 <pinref part="U$2" gate="G$1" pin="1"/>
 <wire x1="139.7" y1="214.63" x2="139.7" y2="228.6" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="241.3" x2="170.18" y2="236.22" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="236.22" x2="160.02" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="241.3" x2="162.56" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="236.22" x2="149.86" y2="236.22" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="1"/>
-<wire x1="160.02" y1="236.22" x2="149.86" y2="236.22" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="241.3" x2="160.02" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="149.86" y1="241.3" x2="149.86" y2="236.22" width="0.1524" layer="91"/>
 <junction x="149.86" y="236.22"/>
-<junction x="160.02" y="236.22"/>
 <pinref part="U3" gate="G$1" pin="VBAT"/>
 <wire x1="129.54" y1="228.6" x2="139.7" y2="228.6" width="0.1524" layer="91"/>
 <pinref part="S2" gate="G$1" pin="2"/>
@@ -14146,10 +14135,9 @@ IC-09995</description>
 </net>
 <net name="N$16" class="0">
 <segment>
-<wire x1="80.01" y1="149.86" x2="77.47" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="P2.3"/>
-<wire x1="66.04" y1="144.78" x2="77.47" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="77.47" y1="144.78" x2="77.47" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="144.78" x2="74.93" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="74.93" y1="144.78" x2="80.01" y2="149.86" width="0.1524" layer="91"/>
 <pinref part="LED1" gate="G$1" pin="A"/>
 <wire x1="97.79" y1="149.86" x2="80.01" y2="149.86" width="0.1524" layer="91"/>
 </segment>
@@ -14195,6 +14183,8 @@ IC-09995</description>
 <wire x1="157.48" y1="223.52" x2="154.94" y2="223.52" width="0.1524" layer="91"/>
 <wire x1="154.94" y1="214.63" x2="154.94" y2="223.52" width="0.1524" layer="91"/>
 <junction x="157.48" y="209.55"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="157.48" y1="207.01" x2="157.48" y2="209.55" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SWITCHON" class="0">
