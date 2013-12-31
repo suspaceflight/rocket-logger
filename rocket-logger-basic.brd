@@ -16,7 +16,7 @@
 <layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="21" name="tPlace" color="16" fill="1" visible="yes" active="yes"/>
 <layer number="22" name="bPlace" color="14" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
@@ -69,7 +69,7 @@
 <layer number="109" name="ref-old" color="11" fill="1" visible="no" active="yes"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="no" active="yes"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="no" active="yes"/>
-<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="122" name="_bsilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="125" name="_tNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="yes"/>
@@ -110,15 +110,11 @@
 <plain>
 <wire x1="0" y1="0" x2="19.75" y2="0" width="0" layer="20"/>
 <wire x1="17" y1="5.5" x2="17" y2="27.6344" width="0" layer="20"/>
-<wire x1="17" y1="27.6344" x2="17" y2="33.1208" width="0" layer="20"/>
-<wire x1="17" y1="33.1208" x2="17" y2="44.5" width="0" layer="20"/>
 <wire x1="19.75" y1="50" x2="1.75" y2="50" width="0" layer="20"/>
 <hole x="2.5" y="47.75" drill="3"/>
-<rectangle x1="21.75" y1="32.5" x2="23.655" y2="47.74" layer="1" rot="R180"/>
 <rectangle x1="24.2638" y1="14.4244" x2="41.4088" y2="37.2844" layer="16"/>
 <text x="10.25" y="37.75" size="1.016" layer="122" ratio="12" rot="MR270">ON</text>
 <text x="8.5" y="37.75" size="1.016" layer="122" ratio="12" rot="MR270">ACT</text>
-<wire x1="0" y1="48.25" x2="0" y2="23.368" width="0" layer="20"/>
 <wire x1="0" y1="23.368" x2="0" y2="0" width="0" layer="20"/>
 <wire x1="22.5" y1="2.75" x2="19.75" y2="0" width="0" layer="20" curve="-90"/>
 <wire x1="19.75" y1="5.5" x2="22.5" y2="2.75" width="0" layer="20" curve="-90"/>
@@ -128,13 +124,13 @@
 <hole x="19.5" y="47.25" drill="3"/>
 <wire x1="19.75" y1="44.5" x2="17" y2="44.5" width="0" layer="20"/>
 <wire x1="0" y1="48.25" x2="1.75" y2="50" width="0" layer="20" curve="-90"/>
-<hole x="17" y="45.25" drill="0.381"/>
-<hole x="17" y="46" drill="0.381"/>
-<hole x="17" y="46.75" drill="0.381"/>
-<hole x="17" y="47.5" drill="0.381"/>
-<hole x="17" y="48.25" drill="0.381"/>
-<hole x="17" y="49" drill="0.381"/>
-<hole x="17" y="49.5" drill="0.381"/>
+<hole x="17.2032" y="45.0468" drill="0.381"/>
+<hole x="17.2032" y="45.7968" drill="0.381"/>
+<hole x="17.2032" y="46.5468" drill="0.381"/>
+<hole x="17.2032" y="47.2968" drill="0.381"/>
+<hole x="17.2032" y="48.0468" drill="0.381"/>
+<hole x="17.2032" y="48.7968" drill="0.381"/>
+<hole x="17.2032" y="49.5" drill="0.381"/>
 <hole x="17" y="5" drill="0.381"/>
 <hole x="17" y="4.25" drill="0.381"/>
 <hole x="17" y="3.5" drill="0.381"/>
@@ -148,44 +144,39 @@
 <text x="27.6464" y="51.346" size="1.778" layer="122" rot="MR0">TOP</text>
 <wire x1="19.75" y1="50" x2="22.5" y2="47.25" width="0" layer="20" curve="-90"/>
 <circle x="2.4384" y="47.752" radius="2.649403125" width="0.2032" layer="1"/>
-<text x="-1.8288" y="13.208" size="1.778" layer="1" rot="R90">untent and label</text>
-<hole x="3.6504" y="35.0588" drill="3"/>
-<wire x1="2.6416" y1="37.1856" x2="4.4704" y2="37.1856" width="0" layer="20"/>
-<wire x1="4.4704" y1="37.1856" x2="6.096" y2="35.7632" width="0" layer="20" curve="-90"/>
-<wire x1="6.096" y1="35.7632" x2="6.096" y2="33.9344" width="0" layer="20"/>
+<hole x="3.6504" y="35.262" drill="3"/>
+<wire x1="2.6416" y1="37.3888" x2="4.4704" y2="37.3888" width="0" layer="20"/>
+<wire x1="4.4704" y1="37.3888" x2="6.096" y2="35.9664" width="0" layer="20" curve="-90"/>
+<wire x1="6.096" y1="35.9664" x2="6.096" y2="33.9344" width="0" layer="20"/>
 <wire x1="6.096" y1="33.9344" x2="6.9088" y2="33.1216" width="0" layer="20" curve="90"/>
 <wire x1="6.9088" y1="33.1216" x2="17.0688" y2="33.1216" width="0" layer="20"/>
 <hole x="5.824" y="33.2612" drill="0.381"/>
-<hole x="4.808" y="33.2612" drill="0.381"/>
-<hole x="3.9952" y="33.2612" drill="0.381"/>
-<hole x="2.9792" y="33.2612" drill="0.381"/>
-<hole x="2.1664" y="33.2612" drill="0.381"/>
-<hole x="1.3536" y="33.2612" drill="0.381"/>
+<hole x="5.0112" y="33.2612" drill="0.381"/>
+<hole x="4.1984" y="33.2612" drill="0.381"/>
+<hole x="3.3856" y="33.2612" drill="0.381"/>
+<hole x="2.5728" y="33.2612" drill="0.381"/>
+<hole x="1.76" y="33.2612" drill="0.381"/>
 <wire x1="19.75" y1="33.1208" x2="17" y2="33.1208" width="0" layer="20"/>
 <wire x1="19.75" y1="33.1344" x2="22.5" y2="30.3844" width="0" layer="20" curve="-90"/>
 <wire x1="22.5" y1="30.3844" x2="19.75" y2="27.6344" width="0" layer="20" curve="-90"/>
 <wire x1="19.75" y1="27.6344" x2="17" y2="27.6344" width="0" layer="20"/>
 <hole x="19.7032" y="30.3844" drill="3"/>
-<hole x="16.7968" y="32.6344" drill="0.381"/>
+<hole x="16.7968" y="32.8376" drill="0.381"/>
+<hole x="16.7968" y="32.228" drill="0.381"/>
 <hole x="16.7968" y="31.4152" drill="0.381"/>
-<hole x="16.7968" y="32.0248" drill="0.381"/>
-<hole x="16.7968" y="30.8056" drill="0.381"/>
-<hole x="16.7968" y="29.9928" drill="0.381"/>
-<hole x="16.7968" y="29.18" drill="0.381"/>
-<hole x="16.7968" y="28.3672" drill="0.381"/>
-<hole x="16.7968" y="27.7576" drill="0.381"/>
+<hole x="16.7968" y="30.6024" drill="0.381"/>
+<hole x="16.7968" y="29.7896" drill="0.381"/>
+<hole x="16.7968" y="28.9768" drill="0.381"/>
+<hole x="16.7968" y="28.164" drill="0.381"/>
 <dimension x1="0" y1="0" x2="0" y2="33.1216" x3="-20.7264" y3="16.5608" layer="107"/>
 <dimension x1="0" y1="0" x2="17.0688" y2="0" x3="8.5344" y3="-15.6464" layer="107"/>
-<rectangle x1="17.4752" y1="33.6296" x2="21.9964" y2="39.624" layer="1" rot="R180"/>
 <dimension x1="0" y1="0" x2="0" y2="37.1856" x3="-27.2288" y3="18.5928" layer="107"/>
 <wire x1="1.2192" y1="24.384" x2="0.8128" y2="23.9776" width="0" layer="20" curve="-90"/>
 <wire x1="0.8128" y1="23.9776" x2="0.6096" y2="23.9776" width="0" layer="20"/>
 <wire x1="0.6096" y1="23.9776" x2="0" y2="23.368" width="0" layer="20" curve="90"/>
-<wire x1="1.2192" y1="24.384" x2="1.2192" y2="35.7632" width="0" layer="20"/>
-<wire x1="1.2192" y1="35.7632" x2="2.6416" y2="37.1856" width="0" layer="20" curve="-90"/>
+<wire x1="1.2192" y1="24.384" x2="1.2192" y2="35.9664" width="0" layer="20"/>
+<wire x1="1.2192" y1="35.9664" x2="2.6416" y2="37.3888" width="0" layer="20" curve="-90"/>
 <rectangle x1="-7.5184" y1="-20.9804" x2="0" y2="0" layer="1"/>
-<rectangle x1="11.2776" y1="34.6964" x2="13.8176" y2="37.7952" layer="1"/>
-<rectangle x1="8.5344" y1="33.6804" x2="9.3472" y2="35.4076" layer="1" rot="R90"/>
 <text x="8.5344" y="31.6992" size="1.016" layer="122" font="vector" ratio="20" rot="MR180">CHG</text>
 <text x="13.4112" y="31.6992" size="1.016" layer="122" font="vector" ratio="20" rot="MR180">PWR</text>
 <wire x1="15.8496" y1="30.2768" x2="15.6464" y2="30.48" width="0.2032" layer="122"/>
@@ -3756,6 +3747,7 @@
 <text x="1.6764" y="16.2306" size="0.8128" layer="122" font="vector" ratio="16" rot="SMR270">Matt Brejza</text>
 <text x="2.7686" y="16.2052" size="0.8128" layer="122" font="vector" ratio="16" rot="SMR270">Jan 14</text>
 <text x="12.9286" y="19.6088" size="0.8128" layer="122" font="vector" ratio="16" rot="SMR270">Rocket Altimeter</text>
+<text x="4" y="16.2" size="0.8128" layer="122" font="vector" ratio="16" rot="SMR270">Rev. 1</text>
 </plain>
 <libraries>
 <library name="Mine">
@@ -7347,14 +7339,14 @@ design rules under a new name.</description>
 <contactref element="C18" pad="1"/>
 <wire x1="15.8496" y1="22.352" x2="15.8496" y2="22.1488" width="0.2032" layer="16"/>
 <polygon width="0.2032" layer="16">
-<vertex x="1.016" y="34.544"/>
-<vertex x="16.6624" y="34.7472"/>
-<vertex x="17.0688" y="34.3408"/>
+<vertex x="1.016" y="33.3248"/>
+<vertex x="16.4592" y="33.3248"/>
+<vertex x="16.8656" y="32.9184"/>
 <vertex x="17.0688" y="0.6096"/>
 <vertex x="16.4592" y="0"/>
 <vertex x="0.4064" y="0"/>
 <vertex x="0" y="0.4064"/>
-<vertex x="0" y="34.1376"/>
+<vertex x="0.2032" y="32.512"/>
 </polygon>
 <wire x1="2.0516" y1="9.5248" x2="2.0516" y2="9.1636" width="0.2032" layer="1"/>
 <wire x1="2.0516" y1="9.1636" x2="1.6256" y2="8.9408" width="0.2032" layer="1"/>
