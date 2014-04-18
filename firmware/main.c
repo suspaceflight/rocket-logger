@@ -9,6 +9,7 @@
 void accurate_clk(void);
 void init(void);
 void send_debug(char*);
+void send_packet(void);
 
 #define BITHIGH WriteSingleReg(FREQ0,    0x3E)
 #define BITLOW  WriteSingleReg(FREQ0,    0x3C)
@@ -18,9 +19,9 @@ void send_debug(char*);
 #define ODR_LOW   cntrl_reg1_val = 0xB9; EEPROM_ByteWrite(0x26,cntrl_reg1_val)
 
 
-
+#define AVERAGE_BUF_POWER (4)
 #define LAUNCH_DET_LEN (4)
-#define AVERAGE_BUF_LEN (16)
+#define AVERAGE_BUF_LEN (2<<AVERAGE_BUF_POWER)
 
 							//16 is sample rate at max speed
 #define THRES_NO_LAUNCH (5 *16)
@@ -40,6 +41,10 @@ char outvar;
 volatile uint8_t state = 0;   //0-idle, 1-inflight, 2-postflight
 uint8_t cntrl_reg1_val = 0xB8 | 1;
 
+int32_t tx_max = 0;
+int32_t tx_min = 0;
+uint16_t tx_id = 0;
+
 /*
  * main.c
  */
@@ -54,8 +59,8 @@ void main(void) {
 
 	__delay_cycles(400000);
 
-	//radio_high_power();
-	//radio_carrier_on();
+	radio_high_power();
+	radio_carrier_on();
 
 
 	send_debug("starting up\n");
@@ -87,6 +92,8 @@ void main(void) {
 	int32_t max_point = 0x80000000;
 	int32_t min_point = 0x7FFFFFFF;
 	uint8_t set_level = 0;    //reset when returning to idle
+
+	uint16_t since_last_tx = 0;
 
 	//all altitudes in meters x16
 	EEPROM_SequentialRead(1,&buff[0],3);
@@ -249,6 +256,17 @@ void main(void) {
 				{
 					state = 1;
 					send_debug("launch detected\n");
+					level_point = average_sum >> AVERAGE_BUF_POWER;
+					since_last_tx = 0;
+				}
+
+				//sync pulse tx / showalive
+				since_last_tx++;
+				if (since_last_tx > 10)
+				{
+					since_last_tx = 0;
+					send_packet();
+
 				}
 				break;
 			case 1:			//launch state
@@ -263,6 +281,8 @@ void main(void) {
 					send_debug("launch ended\n");
 				}
 
+				send_packet();
+
 
 				break;
 			default:		//post launch state
@@ -276,8 +296,12 @@ void main(void) {
 					min_point = 0x7FFFFFFF;
 					send_debug("entering idle\n");
 					sample_rate = 0;
+					tx_id++;
 					ODR_LOW;
 				}
+
+				send_packet();
+
 				break;
 		}
 
@@ -285,12 +309,14 @@ void main(void) {
 
 
 		//if state==launch do min/max
-		if (state > 1)
+		if (state == 1)
 		{
 			if (alt > max_point)
 				max_point = alt;
 			if (alt < min_point)
 				min_point = alt;
+			tx_max = max_point - level_point;
+			tx_min = min_point - level_point;
 		}
 
 	}
@@ -299,16 +325,24 @@ void main(void) {
 
 }
 
+void send_packet(void)
+{
+	if (!(*sendPtr))
+	{
+		snprintf(sendBuff,30,"XXX$$%d,%d,%d,%d \n",tx_id,tx_max,tx_min,tx_id);
+		TA1CCTL0 = CCIE;
+		sendPtr = sendBuff;
+	}
+}
+
 void send_debug(char* string)
 {
-
 	while (*string)
 	{
 		while(!(UCA0IFG & UCTXIFG));
 		UCA0TXBUF = *string;
 		string++;
 	}
-
 }
 
 #pragma vector=TIMER1_A1_VECTOR
@@ -365,6 +399,8 @@ __interrupt void Timer1_A0 (void)
 			sendPtr++;
 		}
 	}
+	else
+		TA1CCTL0 &= ~CCIE;
 /*
 	if (prev_bit){
 		prev_bit = 0;
