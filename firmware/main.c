@@ -21,7 +21,7 @@ void send_packet(void);
 
 #define AVERAGE_BUF_POWER (4)
 #define LAUNCH_DET_LEN (4)
-#define AVERAGE_BUF_LEN (2<<AVERAGE_BUF_POWER)
+#define AVERAGE_BUF_LEN (1<<AVERAGE_BUF_POWER)
 
 							//16 is sample rate at max speed
 #define THRES_NO_LAUNCH (5 *16)
@@ -51,7 +51,7 @@ uint16_t tx_id = 0;
 void main(void) {
 	
 	WDTCTL = WDTPW + WDTHOLD;
-	WDTCTL = WDTPW + (0x2 << 5) + 3;
+//	WDTCTL = WDTPW + (0x2 << 5) + 3;
 
 	init();
 
@@ -63,11 +63,14 @@ void main(void) {
 	radio_carrier_on();
 
 
-	send_debug("starting up\n");
-	state = 2;		//allows a base average to be got
+	send_debug("rst\n");
+
 
 	int32_t launch_det_buff[LAUNCH_DET_LEN];
-	int32_t averaging_buff[AVERAGE_BUF_LEN];
+	int32_t averaging_buff[AVERAGE_BUF_LEN] = {0};
+
+
+	state = 2;		//allows a base average to be got
 
 	uint8_t ldb_ptr = 0;
 	uint8_t av_ptr = 0;
@@ -102,6 +105,8 @@ void main(void) {
 	sample_rate = 2;
 	ODR_HIGH;
 
+	uint8_t test;
+
 	while(1)
 	{
 
@@ -133,6 +138,20 @@ void main(void) {
 		alt |= ((int32_t)buff[0] << 12);
 		alt |= ((int32_t)buff[1] << 4);
 		alt |= ((int32_t)buff[2] >> 4);
+
+		///////
+
+		if (state == 0)
+		{
+			test++;
+			if (test == 60)
+			{
+				test = 0;
+				alt = alt + 300;
+			}
+		}
+
+		//////
 
 		///////////////////////////////
 		///    launch detect        ///
@@ -167,12 +186,12 @@ void main(void) {
 				launch_sample_count++;
 				sample_rate = 2;
 				ODR_HIGH;
-				send_debug("HR ");
+//				send_debug("HR ");
 			}
 			else if (sign)	//otheriwse, if different signs, no launch
 			{
 				launch = 0;
-				send_debug("DS ");
+//				send_debug("DS ");
 				if (sample_rate == 1)		//go back to idle, no launch
 				{
 					sample_rate = 0;
@@ -190,13 +209,13 @@ void main(void) {
 						launch_sample_count++;
 						sample_rate = 2;
 						ODR_HIGH;
-						send_debug("MR ");
+//						send_debug("MR ");
 					}
 					else		//launch might be happening, but wait until next sample
 					{
 						sample_rate = 1;
 						ODR_MED;
-						send_debug("QR ");
+//						send_debug("QR ");
 					}
 				}
 				else
@@ -206,7 +225,7 @@ void main(void) {
 						sample_rate = 0;
 						ODR_LOW;
 					}
-					send_debug("   ");
+//					send_debug("   ");
 				}
 			}
 		}
@@ -247,7 +266,7 @@ void main(void) {
 
 		snprintf(debugBuff,100,"%d\n",alt);
 		send_debug(debugBuff);
-		WDTCTL = (WDTCTL & 0x00FF) | WDTPW | (0x1 << 3);
+	//	WDTCTL = (WDTCTL & 0x00FF) | WDTPW | (0x1 << 3);
 
 		switch (state)
 		{
@@ -255,7 +274,7 @@ void main(void) {
 				if (launch > 0)
 				{
 					state = 1;
-					send_debug("launch detected\n");
+					send_debug("launch det\n");
 					level_point = average_sum >> AVERAGE_BUF_POWER;
 					since_last_tx = 0;
 				}
@@ -329,7 +348,7 @@ void send_packet(void)
 {
 	if (!(*sendPtr))
 	{
-		snprintf(sendBuff,30,"XXX$$%d,%d,%d,%d \n",tx_id,tx_max,tx_min,tx_id);
+		snprintf(sendBuff,30,"XXX$$%u,%ld,%ld\n",(int16_t)tx_id,tx_max,tx_min);
 		TA1CCTL0 = CCIE;
 		sendPtr = sendBuff;
 	}

@@ -175,6 +175,7 @@ void EEPROM_ByteWrite(unsigned int Address, unsigned char Data)
 //   Page Write Operation. The communication via the I2C bus with an EEPROM
 //   (24xx65) is realized. A data byte is written into a user defined address.
 /*----------------------------------------------------------------------------*/
+/*
 void EEPROM_PageWrite(unsigned int StartAddress, unsigned char * Data, unsigned int Size)
 {
   volatile unsigned int i = 0;
@@ -242,7 +243,7 @@ void EEPROM_PageWrite(unsigned int StartAddress, unsigned char * Data, unsigned 
     EEPROM_AckPolling();                    // Ensure data is written in EEPROM
   }
 }
-
+*/
 /*----------------------------------------------------------------------------*/
 // Description:
 //   Current Address Read Operation. Data is read from the EEPROM. The current
@@ -327,7 +328,7 @@ void EEPROM_SequentialRead(unsigned int Address , unsigned char * Data , unsigne
 {
   unsigned char adr_hi;
   unsigned char adr_lo;
-  unsigned int counterSize;
+  //unsigned int counterSize;
 
   while (UCB0STAT & UCBUSY);                // wait until I2C module has
                                             // finished all operations
@@ -370,6 +371,7 @@ void EEPROM_SequentialRead(unsigned int Address , unsigned char * Data , unsigne
 //   Acknowledge Polling. The EEPROM will not acknowledge if a write cycle is
 //   in progress. It can be used to determine when a write cycle is completed.
 /*----------------------------------------------------------------------------*/
+/*
 void EEPROM_AckPolling(void)
 {
   while (UCB0STAT & UCBUSY);                // wait until I2C module has
@@ -391,7 +393,7 @@ void EEPROM_AckPolling(void)
     __delay_cycles(500);                    // Software delay
   }while(UCNACKIFG & UCB0STAT);
 }
-
+*/
 /*---------------------------------------------------------------------------*/
 /*  Interrupt Service Routines                                               */
 /*     Note that the Compiler version is checked in the following code and   */
