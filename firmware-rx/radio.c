@@ -1,8 +1,9 @@
- #include "cc430x513x.h"
- #include "config.h"
- #include "radio.h"
- #include "radio/RF1A.h"
- #include "inttypes.h"
+#include <avr/io.h>
+#include "config.h"
+#include "radio.h"
+#include "RF1A.h"
+#include <util/delay.h>
+
 
 #define BITCOUNTMAX 9
  
@@ -10,13 +11,14 @@ extern RF_SETTINGS rfSettings;
 extern RF_SETTINGS rfSettings_packet;
 
 char bitCounter;
-unsigned char currentChar;
+uint8_t currentChar;
 char* strptr;
 
 
 void radio_init(void)
 {
-	unsigned char pwrs[2] = {RFPOWER_H, RFPOWER_L};
+	init_spi_master();
+	uint8_t pwrs[2] = {RFPOWER_H, RFPOWER_L};
 	WriteRfSettings(&rfSettings);	
 	WriteBurstPATable(&pwrs[0],2);
 	bitCounter = 0;
@@ -25,14 +27,15 @@ void radio_init(void)
 
 void radio_init_packet(void)
 {
-	unsigned char pwrs[2] = {RFPOWER_H, RFPOWER_L};
+	init_spi_master();
+	uint8_t pwrs[2] = {RFPOWER_H, RFPOWER_L};
 	WriteRfSettings(&rfSettings_packet);
 	WriteBurstPATable(&pwrs[0],2);
 	bitCounter = 0;
 	strptr = &bitCounter;
 }
 
-void transmit_packet(unsigned char *buffer, unsigned char length)
+void transmit_packet(uint8_t *buffer, uint8_t length)
 {
 
 	  WriteBurstReg(RF_TXFIFOWR, buffer, length);
@@ -69,7 +72,7 @@ void transmit_packet(unsigned char *buffer, unsigned char length)
  void radio_nolock_beep(void)
  {
  	radio_carrier_on();
- 	__delay_cycles(100000);
+ 	_delay_ms(400);
  	radio_idle();
  	radio_sleep();
  }
@@ -86,7 +89,7 @@ void transmit_packet(unsigned char *buffer, unsigned char length)
  
  void radio_carrier_on(void)
  {
- 	unsigned char st = Strobe( RF_SNOP );
+ 	uint8_t st = Strobe( RF_SNOP );
  	if (!((st & 0x70) == 0x20 ))
  	{
  		Strobe( RF_SIDLE );
@@ -156,4 +159,3 @@ void transmit_packet(unsigned char *buffer, unsigned char length)
  {
  	
  }
-

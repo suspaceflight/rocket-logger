@@ -54,4 +54,6 @@ eagle.epf
 *.out
 *.app
 
-
+*.eep
+*.elf
+*.hex

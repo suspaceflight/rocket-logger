@@ -1,6 +1,5 @@
-
 #include "RF1A.h"
-#include "../config.h"
+#include "config.h"
 
 // Rf settings for CC430F5135
 RF_SETTINGS rfSettings = {
@@ -14,12 +13,12 @@ RF_SETTINGS rfSettings = {
     0x04,  // PKTCTRL1         Packet Automation Control
     0x12,  // PKTCTRL0         Packet Automation Control
     0x00,  // ADDR             Device Address
-    RFCHANNEL,  // CHANNR           Channel Number
+    0, //RFCHANNEL,  // CHANNR           Channel Number
     0x06,  // FSCTRL1          Frequency Synthesizer Control
     0x00,  // FSCTRL0          Frequency Synthesizer Control
     0x10,  // FREQ2            Frequency Control Word, High Byte
     0xB1,  // FREQ1            Frequency Control Word, Middle Byte
-    0x3B,  // FREQ0            Frequency Control Word, Low Byte
+    0x85,  // FREQ0            Frequency Control Word, Low Byte
     0xF4,  // MDMCFG4          Modem Configuration
     0x02,  // MDMCFG3          Modem Configuration
     0x30,  // MDMCFG2          Modem Configuration
@@ -104,7 +103,7 @@ RF_SETTINGS rfSettings_packet = {
     0x00,  // FSCTRL0          Frequency Synthesizer Control
     0x10,  // FREQ2            Frequency Control Word, High Byte
     0xB1,  // FREQ1            Frequency Control Word, Middle Byte
-    0x3A,  // FREQ0            Frequency Control Word, Low Byte
+    0x85,  // FREQ0            Frequency Control Word, Low Byte
     0xF5,  // MDMCFG4          Modem Configuration
     0x83,  // MDMCFG3          Modem Configuration
     0x03,  // MDMCFG2          Modem Configuration

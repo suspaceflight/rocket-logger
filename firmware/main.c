@@ -65,6 +65,14 @@ void main(void) {
 
 	send_debug("rst\n");
 
+	unsigned char txbuffp[] = {1,2,3,4,5,6,7,8,9,10};
+
+	while(1)
+	{
+		transmit_packet(txbuffp,10);
+		__delay_cycles(4000000);
+	}
+
 
 	int32_t launch_det_buff[LAUNCH_DET_LEN];
 	int32_t averaging_buff[AVERAGE_BUF_LEN] = {0};
@@ -435,7 +443,8 @@ __interrupt void Timer1_A0 (void)
 
 void init(void)
 {
-	radio_init();
+	//radio_init();
+	radio_init_packet();
 	accurate_clk();
 
 	//setup counting timer
