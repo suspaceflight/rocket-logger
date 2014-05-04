@@ -3,14 +3,14 @@
 
 // Rf settings for CC430F5135
 RF_SETTINGS rfSettings = {
-    0x0B,  // IOCFG2           GDO2 Output Configuration
+    0x07,  // IOCFG2           GDO2 Output Configuration
     0x2E,  // IOCFG1           GDO1 Output Configuration
     0x2D,  // IOCFG0           GDO0 Output Configuration
     0x47,  // FIFOTHR          RX FIFO and TX FIFO Thresholds
     0xD3,  // SYNC1            Sync Word, High Byte
     0x91,  // SYNC0            Sync Word, Low Byte
     0xFF,  // PKTLEN           Packet Length
-    0x04,  // PKTCTRL1         Packet Automation Control
+    0x0C,  // PKTCTRL1         Packet Automation Control
     0x12,  // PKTCTRL0         Packet Automation Control
     0x00,  // ADDR             Device Address
     0, //RFCHANNEL,  // CHANNR           Channel Number
@@ -26,7 +26,7 @@ RF_SETTINGS rfSettings = {
     0x00,  // MDMCFG0          Modem Configuration
     0x15,  // DEVIATN          Modem Deviation Setting
     0x07,  // MCSM2            Main Radio Control State Machine Configuration
-    0x30,  // MCSM1            Main Radio Control State Machine Configuration
+    0x3C,  // MCSM1            Main Radio Control State Machine Configuration
     0x10,  // MCSM0            Main Radio Control State Machine Configuration
     0x16,  // FOCCFG           Frequency Offset Compensation Configuration
     0x6C,  // BSCFG            Bit Synchronization Configuration

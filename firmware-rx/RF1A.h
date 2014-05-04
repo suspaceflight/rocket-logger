@@ -149,6 +149,10 @@ uint8_t spi_rx(void);
 #define RF_RXFIFORD            (RF_REGRD+RXFIFO)
 #define RF_TXFIFOWR            (RF_REGWR+TXFIFO)
 
+#define CC1100_WRITE_BURST      0x40
+#define CC1100_READ_SINGLE      0x80
+#define CC1100_READ_BURST       0xC0
+
 // Radio Core Registers
 #define IOCFG2                 0x00           /*  IOCFG2   - GDO2 output pin configuration  */
 #define IOCFG1                 0x01           /*  IOCFG1   - GDO1 output pin configuration  */

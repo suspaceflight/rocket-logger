@@ -138,6 +138,21 @@ void WriteSingleReg(uint8_t addr, uint8_t value) //done
   }
 }  
 */
+void ReadBurstReg(uint8_t addr, uint8_t *buffer, uint8_t count)
+{
+
+	uint8_t i = 0; 
+	CS_LOW;
+	spi_tx(addr | RF_REGRD);
+	for (i = 0; i < count; i++)
+	{
+		buffer[i] = spi_tx_rx(0);
+	}
+	CS_HIGH;
+
+}
+
+
 // *****************************************************************************
 // @fn          WriteBurstReg
 // @brief       Write multiple bytes to the radio registers

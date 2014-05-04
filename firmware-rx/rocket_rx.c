@@ -30,23 +30,39 @@ int main (void)
 	}
 	
 */
-	char buff[100] = {0};
-
+	char buff[200] = {0};
+	char buffrx[100] = {0};
 		
 //	ResetRadioCore(); 
 	radio_init_packet();
 	Strobe( RF_SRX ); 
 	
 
-	
+	_delay_ms(1000);
 	while(1)
 	{
-		_delay_ms(1000);
+		
+		
 		uint8_t stat = Strobe( RF_SNOP );
 		uint8_t rx_count = ReadSingleReg( RXBYTES );
-		snprintf(buff,100,"  s %u  rx % u",stat,rx_count);
+		snprintf(buff,100,"s %u r %u",stat,rx_count);
 		display_string(buff);
-		
+		if (rx_count > 0)
+		{ 
+			ReadBurstReg(RF_RXFIFORD, buffrx, rx_count); 
+			
+			
+			for (uint8_t i = 0; i < rx_count; i++)
+			{				
+				snprintf(buff,5," %x",(uint8_t)buffrx[i]);
+				display_string(buff);
+			}
+			display.x = 0;
+			display.y += 8;	
+			 Strobe( RF_SRX ); 
+		}
+		while(!(PINB & (1<<1)));
+		while((PINB & (1<<1)));
 	}
 
 	return 0;
