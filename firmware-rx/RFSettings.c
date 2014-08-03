@@ -94,7 +94,7 @@ RF_SETTINGS rfSettings_packet = {
     0x47,  // FIFOTHR          RX FIFO and TX FIFO Thresholds
     0xD3,  // SYNC1            Sync Word, High Byte
     0x91,  // SYNC0            Sync Word, Low Byte
-    0x0A,  // PKTLEN           Packet Length
+    28,//0x0A,  // PKTLEN           Packet Length
     0x04,  // PKTCTRL1         Packet Automation Control
     0x04,  // PKTCTRL0         Packet Automation Control
     0x00,  // ADDR             Device Address
