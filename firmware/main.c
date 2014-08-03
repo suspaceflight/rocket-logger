@@ -10,6 +10,7 @@ void accurate_clk(void);
 void init(void);
 void send_debug(char*);
 void send_packet(void);
+uint16_t crc_xmodem_update (uint16_t crc, uint8_t data);
 
 #define BITHIGH WriteSingleReg(FREQ0,    0x3E)
 #define BITLOW  WriteSingleReg(FREQ0,    0x3C)
@@ -32,10 +33,10 @@ void send_packet(void);
 #define THRES_LARGE (20)
 
 volatile int prev_bit = 0;
-char sendBuff[100] = "\0";
+uint8_t sendBuff[100] = "\0";
 char debugBuff[100] = "\0";
 volatile uint8_t bitpos = 0;
-volatile char* sendPtr = &sendBuff[0];
+volatile uint8_t* sendPtr = &sendBuff[0];
 char outvar;
 
 volatile uint8_t state = 0;   //0-idle, 1-inflight, 2-postflight
@@ -44,6 +45,9 @@ uint8_t cntrl_reg1_val = 0xB8 | 1;
 int32_t tx_max = 0;
 int32_t tx_min = 0;
 uint16_t tx_id = 0;
+
+uint16_t packet_count = 0;
+uint16_t device_id = 0x5E06;
 
 /*
  * main.c
@@ -60,18 +64,18 @@ void main(void) {
 	__delay_cycles(400000);
 
 	radio_high_power();
-	radio_carrier_on();
+	//radio_carrier_on();
 
 
 	send_debug("rst\n");
 
-	unsigned char txbuffp[] = {1,2,3,4,5,6,7,8,9,10};
+	//unsigned char txbuffp[] = {1,2,3,4,5,6,7,8,9,10};
 
-	while(1)
-	{
-		transmit_packet(txbuffp,10);
-		__delay_cycles(4000000);
-	}
+//	while(1)
+//	{
+//		transmit_packet(txbuffp,10);
+//		__delay_cycles(4000000);
+//	}
 
 
 	int32_t launch_det_buff[LAUNCH_DET_LEN];
@@ -271,8 +275,8 @@ void main(void) {
 		average_sum -= removed2;
 		average_sum += removed;
 
-
-		snprintf(debugBuff,100,"%d\n",alt);
+		int32_t diff = alt-level_point;
+		snprintf(debugBuff,100,"%d  %d \n\r",(int16_t)alt,(int16_t)diff);
 		send_debug(debugBuff);
 	//	WDTCTL = (WDTCTL & 0x00FF) | WDTPW | (0x1 << 3);
 
@@ -281,8 +285,9 @@ void main(void) {
 			case 0:  		//idle state
 				if (launch > 0)
 				{
+					tx_id++;
 					state = 1;
-					send_debug("launch det\n");
+					send_debug("launch det\n\r");
 					level_point = average_sum >> AVERAGE_BUF_POWER;
 					since_last_tx = 0;
 				}
@@ -305,10 +310,10 @@ void main(void) {
 					state = 2;
 					no_launch_sample_count = 0;
 					launch_sample_count = 0;
-					send_debug("launch ended\n");
+					send_debug("launch ended\r\n");
 				}
 
-				send_packet();
+			//	send_packet();
 
 
 				break;
@@ -321,9 +326,8 @@ void main(void) {
 					set_level = 0;
 					max_point = 0x80000000;
 					min_point = 0x7FFFFFFF;
-					send_debug("entering idle\n");
+					send_debug("entering idle\r\n");
 					sample_rate = 0;
-					tx_id++;
 					ODR_LOW;
 				}
 
@@ -352,14 +356,79 @@ void main(void) {
 
 }
 
+void form_packet(uint8_t *buff)
+{
+	buff[0] = (uint8_t)(packet_count>>8);
+	buff[1] = (uint8_t)(packet_count & 0xFF);
+	buff[2] = (uint8_t)(device_id >> 8);
+	buff[3] = (uint8_t)(device_id & 0xFF);
+
+	int32_t t = tx_max;
+	buff[7] = (uint8_t)(t & 0xFF);
+	t = t >> 8;
+	buff[6] = (uint8_t)(t & 0xFF);
+	t = t >> 8;
+	buff[5] = (uint8_t)(t & 0xFF);
+	t = t >> 8;
+	buff[4] = (uint8_t)(t & 0xFF);
+
+	t = tx_min;
+	buff[11] = (uint8_t)(t & 0xFF);
+	t = t >> 8;
+	buff[10] = (uint8_t)(t & 0xFF);
+	t = t >> 8;
+	buff[9]  = (uint8_t)(t & 0xFF);
+	t = t >> 8;
+	buff[8]  = (uint8_t)(t & 0xFF);
+
+	buff[16] = state;
+
+	buff[18] = (uint8_t)(tx_id>>8);
+	buff[19] = (uint8_t)(tx_id & 0xFF);
+
+	uint16_t crc = 0xFFFF;
+	uint8_t i;
+	for (i = 0; i < 26; i++)
+		crc = crc_xmodem_update(crc,buff[i]);
+
+	buff[26] = (uint8_t)((crc>>8) & 0xFF);
+	buff[27] = (uint8_t)(crc & 0xFF);
+
+}
+
+
+uint16_t crc_xmodem_update (uint16_t crc, uint8_t data)
+{
+	int i;
+
+	crc = crc ^ ((uint16_t)data << 8);
+	for (i=0; i<8; i++)
+	{
+		if (crc & 0x8000)
+			crc = (crc << 1) ^ 0x1021;
+		else
+			crc <<= 1;
+	}
+
+	return crc;
+}
+
 void send_packet(void)
 {
-	if (!(*sendPtr))
+//	if (!(*sendPtr))
+//	{
+//		snprintf(sendBuff,30,"XXX$$%u,%ld,%ld\n",(int16_t)tx_id,tx_max,tx_min);
+//		TA1CCTL0 = CCIE;
+//		sendPtr = sendBuff;
+//	}
+	unsigned char status = Strobe( RF_SNOP );
+	if ((status & 0x30) == 0)
 	{
-		snprintf(sendBuff,30,"XXX$$%u,%ld,%ld\n",(int16_t)tx_id,tx_max,tx_min);
-		TA1CCTL0 = CCIE;
-		sendPtr = sendBuff;
+		form_packet(sendBuff);
+		transmit_packet(sendBuff,28);
+		packet_count++;
 	}
+
 }
 
 void send_debug(char* string)
@@ -492,7 +561,7 @@ void init(void)
 	P2SEL |= BIT0;
 	P2DIR |= BIT0;
 	UCA0CTL1 |= UCSSEL_1;
-	UCA0BR0 = 26;
+	UCA0BR0 = 27;
 	UCA0BR1 = 0;
 	UCA0MCTL = UCBRS1;
 	UCA0CTL1 &= ~UCSWRST;
