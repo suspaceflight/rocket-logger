@@ -1,11 +1,10 @@
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
 	
-#define CALLSIGN "PICOTEX"  //not actually used
 
 #define DEBUG
 
-#define CONTINUOUS 1
+
 
 #define  RFPOWER_H    (0xC0)
 #define  RFPOWER_L    (0x80)
@@ -36,13 +35,6 @@
 #define defUCCSEL	0x2		
 
 //IO
-#define LED_PIN (1<<7)
-#define LED_PORT P3OUT
-#define LED_DIR P3DIR
-
-#define GPSINT_PIN (1<<2)
-#define GPSINT_PORT P2OUT
-#define GPSINT_DIR P2DIR
 
 #define UARTTX_PIN (1<<6)
 #define UARTRX_PIN (1<<5)
@@ -58,9 +50,5 @@
 #define SDCS_PORT P1OUT
 
 
-
-//buffer lengths
-
-#define OUTBUFF_LEN 100
 
 #endif

@@ -45,9 +45,12 @@ uint8_t cntrl_reg1_val = 0xB8 | 1;
 int32_t tx_max = 0;
 int32_t tx_min = 0;
 uint16_t tx_id = 0;
+uint16_t batt_voltage = 0;
+
+uint16_t ticks_since_last = 0;
 
 uint16_t packet_count = 0;
-uint16_t device_id = 0x5E06;
+const uint16_t device_id = 0x5E06;
 
 /*
  * main.c
@@ -153,6 +156,7 @@ void main(void) {
 
 		///////
 
+#ifdef DEBUG
 		if (state == 0)
 		{
 			test++;
@@ -162,6 +166,7 @@ void main(void) {
 				alt = alt + 300;
 			}
 		}
+#endif
 
 		//////
 
@@ -300,6 +305,16 @@ void main(void) {
 					send_packet();
 
 				}
+
+				ticks_since_last++;
+				if (ticks_since_last > 100000000)   //change
+					P1OUT &= ~BIT2;					//turn off
+
+				//test battery voltage
+				//read previous
+				batt_voltage = ADC12MEM0;
+				//start next
+				ADC12CTL0 |= ADC12SC;
 				break;
 			case 1:			//launch state
 				if (launch == 0 )
@@ -329,6 +344,10 @@ void main(void) {
 					send_debug("entering idle\r\n");
 					sample_rate = 0;
 					ODR_LOW;
+
+					if (tx_max > 1600 || tx_min < 1600)
+						ticks_since_last = 0;
+
 				}
 
 				send_packet();
@@ -383,8 +402,16 @@ void form_packet(uint8_t *buff)
 
 	buff[16] = state;
 
+	buff[17] = (uint8_t)((batt_voltage >> 4)&0xFF);
+
 	buff[18] = (uint8_t)(tx_id>>8);
 	buff[19] = (uint8_t)(tx_id & 0xFF);
+
+	buff[20] = (uint8_t)((ticks_since_last>>8)&0xFF);
+	buff[21] = (uint8_t)(ticks_since_last&0xFF);
+
+
+
 
 	uint16_t crc = 0xFFFF;
 	uint8_t i;
@@ -553,8 +580,19 @@ void init(void)
 	P3REN |= BIT4;
 	P3OUT |= BIT4;
 
+	//ADC
+	ADC12CTL0 = ADC12SHT11 + ADC12ON;         // Sampling time, ADC12 on
+	ADC12CTL1 = ADC12SHP;                     // Use sampling timer
+	ADC12MCTL0 = ADC12INCH_2+ADC12EOS;
+	ADC12CTL0 |= ADC12ENC;
+
+
 	//bodge p3.4 to timer0 for interrupts
 	TA1CCTL2 = CM_2 + CCIS_0 + SCS + CAP + CCIE;
+
+	//keepon
+	P1DIR |= BIT2;
+	P1OUT |= BIT2;
 
 
 	//setup debug uart
