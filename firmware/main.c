@@ -288,6 +288,11 @@ void main(void) {
 		switch (state)
 		{
 			case 0:  		//idle state
+				if (batt_voltage > 2662) // 3.9V
+					P2OUT |= BIT3;
+				else
+					P2OUT |= BIT4;
+
 				if (launch > 0)
 				{
 					tx_id++;
@@ -307,7 +312,7 @@ void main(void) {
 				}
 
 				ticks_since_last++;
-				if (ticks_since_last > 100000000)   //change
+				if (ticks_since_last > 60)//1800)   //change
 					P1OUT &= ~BIT2;					//turn off
 
 				//test battery voltage
@@ -315,6 +320,10 @@ void main(void) {
 				batt_voltage = ADC12MEM0;
 				//start next
 				ADC12CTL0 |= ADC12SC;
+
+				P2OUT &= ~(BIT3 | BIT4);
+
+
 				break;
 			case 1:			//launch state
 				if (launch == 0 )
@@ -345,7 +354,7 @@ void main(void) {
 					sample_rate = 0;
 					ODR_LOW;
 
-					if (tx_max > 1600 || tx_min < 1600)
+					if (tx_max > 1600 || tx_min < -1600)    ///change
 						ticks_since_last = 0;
 
 				}
@@ -593,6 +602,10 @@ void init(void)
 	//keepon
 	P1DIR |= BIT2;
 	P1OUT |= BIT2;
+
+	//status LEDs
+	P2DIR |= BIT3 | BIT4;
+	P2OUT &= ~(BIT3 | BIT4);
 
 
 	//setup debug uart

@@ -82,9 +82,12 @@ int main (void)
 				int32_t max_alt =  (int32_t)buffrx[7] + (((int32_t)buffrx[6]) << 8) + (((int32_t)buffrx[5]) << 16) + (((int32_t)buffrx[4]) << 24);
 				int32_t min_alt =  (int32_t)buffrx[11] + (((int32_t)buffrx[10]) << 8) + (((int32_t)buffrx[9]) << 16) + (((int32_t)buffrx[8]) << 24);
 				uint16_t flight_id = (uint16_t)buffrx[19] + (((uint16_t)buffrx[18]) << 8);
-			
+                uint32_t bv = (uint16_t)buffrx[17];
+                uint16_t since_last = (uint16_t)buffrx[21] + (((uint16_t)buffrx[20]) << 8);
+                bv = bv * 375;
+                bv = bv >> 4;
 				
-				 
+				
 			
 			
 				if (lastid != flight_id)
@@ -95,7 +98,7 @@ int main (void)
 				else
 					display.x = 0;
 					
-				snprintf(buff,50,"%u %u %ld %ld        ",packet_count,flight_id,max_alt,min_alt);
+				snprintf(buff,50,"%u %u %ld %ld   %u %u      ",packet_count,flight_id,max_alt,min_alt,(uint16_t)bv,since_last);
 				display_string(buff);
 					
 				
