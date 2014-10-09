@@ -49,6 +49,9 @@ uint16_t batt_voltage = 0;
 
 uint16_t ticks_since_last = 0;
 
+uint8_t button_held = 3;
+uint8_t button_held_off = 2;
+
 uint16_t packet_count = 0;
 const uint16_t device_id = 0x5E06;
 
@@ -64,7 +67,22 @@ void main(void) {
 
 	__bis_SR_register(GIE);
 
+	//__delay_cycles(400000);
+
+	while(ADC12CTL1 & ADC12BUSY);
+	batt_voltage = ADC12MEM0;
+	ADC12CTL0 |= ADC12SC;
 	__delay_cycles(400000);
+	while(ADC12CTL1 & ADC12BUSY);
+	batt_voltage = ADC12MEM0;
+	ADC12CTL0 |= ADC12SC;
+	while(ADC12CTL1 & ADC12BUSY);
+	batt_voltage = ADC12MEM0;
+
+	if (batt_voltage > 2662) // 3.9V
+		P2OUT |= BIT3;
+	else
+		P2OUT |= BIT4;
 
 	radio_high_power();
 	//radio_carrier_on();
@@ -288,10 +306,33 @@ void main(void) {
 		switch (state)
 		{
 			case 0:  		//idle state
+
+				//test battery voltage
+				//read previous
+				batt_voltage = ADC12MEM0;
+
 				if (batt_voltage > 2662) // 3.9V
 					P2OUT |= BIT3;
 				else
 					P2OUT |= BIT4;
+
+				//monitor power button
+				if ((P1IN & (1<<1)))
+				{
+
+					if (button_held == 0){
+						if(button_held_off == 0){
+							P1OUT &= ~BIT2;			 //turn off
+							P2OUT &= ~(BIT3 | BIT4);
+						}
+						else
+							button_held_off--;
+					}
+				}
+				else if (button_held)
+					button_held--;
+				else
+					button_held_off = 2;
 
 				if (launch > 0)
 				{
@@ -316,11 +357,12 @@ void main(void) {
 					P1OUT &= ~BIT2;					//turn off
 
 				//test battery voltage
-				//read previous
-				batt_voltage = ADC12MEM0;
 				//start next
 				ADC12CTL0 |= ADC12SC;
 
+
+
+				_delay_cycles(30000);
 				P2OUT &= ~(BIT3 | BIT4);
 
 
@@ -363,6 +405,14 @@ void main(void) {
 
 				break;
 		}
+
+
+		//turn off?
+		if (batt_voltage < 2388){     //3.5V
+			P1OUT &= ~BIT2;			 //turn off
+		}
+
+
 
 
 
@@ -594,6 +644,7 @@ void init(void)
 	ADC12CTL1 = ADC12SHP;                     // Use sampling timer
 	ADC12MCTL0 = ADC12INCH_2+ADC12EOS;
 	ADC12CTL0 |= ADC12ENC;
+	ADC12CTL0 |= ADC12SC;
 
 
 	//bodge p3.4 to timer0 for interrupts
@@ -602,6 +653,9 @@ void init(void)
 	//keepon
 	P1DIR |= BIT2;
 	P1OUT |= BIT2;
+
+	//button sense pull down
+	P1REN |= (1<<1);
 
 	//status LEDs
 	P2DIR |= BIT3 | BIT4;
