@@ -93,6 +93,90 @@ void clear_screen()
 	fill_rectangle(r, display.background);
 }
 
+
+static uint8_t stretch_up(uint8_t in)
+{
+//0b 0000abcd into 0b aabbccdd
+
+    return ((in << 0) & 0x01) | ((in << 1) & 0x02) |
+           ((in << 1) & 0x04) | ((in << 2) & 0x08) |
+           ((in << 2) & 0x10) | ((in << 3) & 0x20) |
+           ((in << 3) & 0x40) | ((in << 4) & 0x80);
+
+}
+static uint8_t stretch_down(uint8_t in)
+{
+//0b abcd0000 into 0b aabbccdd
+    return ((in >> 4) & 0x01) | ((in >> 3) & 0x02) |
+           ((in >> 3) & 0x04) | ((in >> 2) & 0x08) |
+           ((in >> 2) & 0x10) | ((in >> 1) & 0x20) |
+           ((in >> 1) & 0x40) | ((in >> 0) & 0x80);
+
+}
+
+void display_char_double(char c)
+{
+
+    uint16_t x, y;
+    uint8_t i = 0;
+	PGM_P fdata; 
+	uint8_t bits, mask;
+	uint16_t sc=display.x, ec=display.x + 9, sp=display.y, ep=display.y + 7;
+	if (c < 32 || c > 126) return;
+	fdata = (c - ' ')*5 + font5x7;
+	write_cmd(PAGE_ADDRESS_SET);
+	write_data16(sp);
+	write_data16(ep);
+	for(x=sc; x<=ec; x++) {
+		write_cmd(COLUMN_ADDRESS_SET);
+		write_data16(x);
+		write_data16(x);
+		write_cmd(MEMORY_WRITE);
+		bits = stretch_up(pgm_read_byte(fdata) & 0xF);
+        if (i & 1)
+            fdata++;
+		for(y=sp, mask=0x01; y<=ep; y++, mask<<=1)
+			write_data16((bits & mask) ? display.foreground : display.background);
+            i++;
+	}
+	write_cmd(COLUMN_ADDRESS_SET);
+	write_data16(x);
+	write_data16(x);
+	write_cmd(MEMORY_WRITE);
+	for(y=sp; y<=ep; y++)
+		write_data16(display.background);
+        
+        
+    sp=display.y+8; ep=display.y + 7 + 8;
+    fdata = (c - ' ')*5 + font5x7;
+	write_cmd(PAGE_ADDRESS_SET);
+	write_data16(sp);
+	write_data16(ep);
+	for(x=sc; x<=ec; x++) {
+		write_cmd(COLUMN_ADDRESS_SET);
+		write_data16(x);
+		write_data16(x);
+		write_cmd(MEMORY_WRITE);
+		bits = stretch_down(pgm_read_byte(fdata) & 0xF0);
+        if (i & 1)
+            fdata++;
+		for(y=sp, mask=0x01; y<=ep; y++, mask<<=1)
+			write_data16((bits & mask) ? display.foreground : display.background);
+            i++;
+	}
+	write_cmd(COLUMN_ADDRESS_SET);
+	write_data16(x);
+	write_data16(x);
+	write_cmd(MEMORY_WRITE);
+	for(y=sp; y<=ep; y++)
+		write_data16(display.background);
+
+	display.x += 11;
+	if (display.x >= display.width) { display.x=0; display.y+=13; }
+
+
+}
+
 void display_char(char c)
 {
 	uint16_t x, y;
@@ -129,5 +213,12 @@ void display_string(char *str)
 	uint8_t i;
 	for(i=0; str[i]; i++) 
 		display_char(str[i]);
+}
+
+void display_string_double(char *str)
+{
+	uint8_t i;
+	for(i=0; str[i]; i++) 
+		display_char_double(str[i]);
 }
 
