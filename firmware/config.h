@@ -2,8 +2,8 @@
 #define __CONFIG_H__
 	
 
-#define DEBUG
-
+//#define DEBUG
+#define TTL_MAX 1800
 
 
 #define  RFPOWER_H    (0xC0)

@@ -11,7 +11,10 @@ uint16_t crc_xmodem_update (uint16_t crc, uint8_t data);
 void init_drawing(void);
 void draw_rectangle_line(rectangle r, uint8_t thickness, uint16_t c);
 void redraw_data(uint8_t index);
-
+void init();
+void redraw_ago(uint8_t index);
+void activity_dot(uint8_t index);
+void clear_activity_dot(uint8_t index);
 
 
 const uint8_t col1 = 20;
@@ -30,13 +33,14 @@ uint16_t bv_list[4];
 
 uint16_t ttl_list[4];
 
-int32_t alt_list[4][4] = {0};   //[unit][time]
-uint16_t alt_ago_list[4][4] = {0};
-
+int32_t alt_list[4][4] = {{0}};   //[unit][time]
+uint16_t alt_ago_list[4][4] = {{0}};   //botom byte seconds, top byte minutes
+volatile uint8_t toggle = 0;
 //uint8_t valid_list[4] = {0};
 
 int main (void)
 {
+    init();
 	init_lcd();
     init_drawing();
 
@@ -46,17 +50,17 @@ int main (void)
     
     id_list[0] = 2;
     id_list[2] = 12;
-    fid_list[4] = 0;
+    //fid_list[4] = 0;
     bv_list[0] = 3840;
     bv_list[2] = 4120;
     alt_list[0][0] = 13850;
     alt_list[2][0] = -660;
     ttl_list[0] = 4*60;
     ttl_list[2] = 2*60;
-    alt_ago_list[0][0] = 3;
-    alt_ago_list[2][0] = 20;
-    alt_ago_list[0][1] = 35;
-    alt_ago_list[2][2] = 7;
+    alt_ago_list[0][0] = 0;
+    alt_ago_list[2][0] = 3*256+50;
+    alt_ago_list[0][1] = 0;
+    alt_ago_list[2][2] = 0;
     
     redraw_data(0);
     redraw_data(2);
@@ -152,6 +156,7 @@ int main (void)
                 
                 if (index < 4)
                 {      
+                    activity_dot(index);
                     bv_list[index] = (uint16_t)bv;
                     if (fid_list[index] != flight_id)
                     {
@@ -159,6 +164,10 @@ int main (void)
                         alt_list[index][3] = alt_list[index][2];
                         alt_list[index][2] = alt_list[index][1];
                         alt_list[index][1] = alt_list[index][0];
+                        alt_ago_list[index][3] = alt_ago_list[index][2];
+                        alt_ago_list[index][2] = alt_ago_list[index][1];
+                        alt_ago_list[index][1] = alt_ago_list[index][0];
+                        alt_ago_list[index][0] = 0;
                     }
                     if (abs(max_alt) > abs(min_alt))                    
                         alt_list[index][0] = max_alt;
@@ -169,6 +178,7 @@ int main (void)
                     //alt_ago_list[index][1] = 35;
                 
                     redraw_data(index);
+                    clear_activity_dot(index);
                 }
 
             
@@ -199,6 +209,94 @@ int main (void)
 }
 
 
+void init(void)
+{
+
+    TCCR1B = (1<<WGM12);	//CTC mode
+	TCCR1B |= 0b101;			//1024 prescaler
+	OCR1A = 11718;			
+	TIMSK1 = (1<<OCIE1A);
+    DDRD |= (1<<0);
+    
+    sei();
+
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+    //if (PORTB & (1<<7))
+    //    PORTB &= ~(1<<7);
+    //else
+    //    PORTB |= (1<<7);
+    /*if (toggle){
+        toggle = 0;
+        PORTD |= (1<<0);
+    }else{
+        toggle = 1;
+        PORTD &= ~(1<<0);
+    }*/
+    PORTD &= ~(1<<0);
+    uint8_t i,j;    
+    uint8_t redraw_flag = 0;
+    //update 'ago'
+    for (i = 0; i < 4; i++){
+        for (j = 0; j < 4; j++){
+            if (alt_list[i][j] != 0)
+            {
+                alt_ago_list[i][j]++;
+                if ((alt_ago_list[i][j] & 0xFF) >= 60){
+                    alt_ago_list[i][j] -= 60;
+                    alt_ago_list[i][j] += (1<<8);
+                    redraw_flag = 1;
+                }
+            }
+        }
+        if (redraw_flag){
+            redraw_ago(i);
+            PORTD |= (1<< 0);
+        }
+        redraw_flag = 0;
+    }
+    
+}
+
+void redraw_ago(uint8_t index)
+{
+    uint8_t i,j;  
+    snprintf(buff,25,"  (rx %u min ago)   ",alt_ago_list[index][0]>>8);
+    display.x = col2;
+    display.y = alt_r[0] + index*80 + 17;
+    display_string(buff);
+    
+    for (i=1; i < 4; i++)
+    {        
+        j = snprintf(buff,25,"  (%u min)",alt_ago_list[index][i]>>8);
+        display.x = 236-(6*j);
+        display.y = alt_r[i] + index*80;
+        display_string(buff);
+    }
+}
+
+void activity_dot(uint8_t index)
+{
+    rectangle r1;
+    r1.left = col1;
+    r1.top = 60+index*80;
+    r1.bottom = 63+index*80;
+    r1.right = col1+4;
+    draw_rectangle_line(r1,2,GREEN);
+}
+
+void clear_activity_dot(uint8_t index)
+{
+    rectangle r1;
+    r1.left = col1;
+    r1.top = 60+index*80;
+    r1.bottom = 63+index*80;
+    r1.right = col1+4;
+    draw_rectangle_line(r1,2,BLACK);
+}
+
 void redraw_data(uint8_t index)
 {
     uint8_t i,j;
@@ -214,7 +312,7 @@ void redraw_data(uint8_t index)
     display_string_double("`");
 	display_string(buff);
     
-    snprintf(buff,10,"%ld",alt_list[index][0]>>4);
+    i=snprintf(buff,10,"%ld",alt_list[index][0]>>4);
     display.x = col2;
     display.y = alt_r[0] + index*80;
     display_string_double(buff);
@@ -222,6 +320,10 @@ void redraw_data(uint8_t index)
         display_string_double(".5");
     else
         display_string_double(".0");
+    j = display.x;
+    snprintf(buff,9-i,"                       ");
+    display_string_double(buff);
+    display.x  = j;
     display.y += 8;
     display_string("m");
     
@@ -247,14 +349,14 @@ void redraw_data(uint8_t index)
 	display_string(buff);
     
     
-    snprintf(buff,25,"  (rx %u min ago)",alt_ago_list[index][0]);
+    snprintf(buff,25,"  (rx %u min ago)",alt_ago_list[index][0]>>8);
     display.x = col2;
     display.y = alt_r[0] + index*80 + 17;
     display_string(buff);
     
     for (i=1; i < 4; i++)
     {        
-        j = snprintf(buff,25,"  (%u min)",alt_ago_list[index][i]);
+        j = snprintf(buff,25,"  (%u min)",alt_ago_list[index][i]>>8);
         display.x = 236-(6*j);
         display.y = alt_r[i] + index*80;
         display_string(buff);

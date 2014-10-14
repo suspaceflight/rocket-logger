@@ -353,8 +353,13 @@ void main(void) {
 				}
 
 				ticks_since_last++;
+#ifdef DEBUG
 				if (ticks_since_last > 60)//1800)   //change
 					P1OUT &= ~BIT2;					//turn off
+#else
+				if (ticks_since_last > TTL_MAX)   //change
+					P1OUT &= ~BIT2;					//turn off
+#endif
 
 				//test battery voltage
 				//start next
@@ -466,8 +471,8 @@ void form_packet(uint8_t *buff)
 	buff[18] = (uint8_t)(tx_id>>8);
 	buff[19] = (uint8_t)(tx_id & 0xFF);
 
-	buff[20] = (uint8_t)((ticks_since_last>>8)&0xFF);
-	buff[21] = (uint8_t)(ticks_since_last&0xFF);
+	buff[20] = (uint8_t)(((TTL_MAX-ticks_since_last)>>8)&0xFF);
+	buff[21] = (uint8_t)((TTL_MAX-ticks_since_last)&0xFF);
 
 
 
