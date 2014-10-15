@@ -15,6 +15,7 @@ void init();
 void redraw_ago(uint8_t index);
 void activity_dot(uint8_t index);
 void clear_activity_dot(uint8_t index);
+void redraw_status(uint8_t index, uint16_t c);
 
 
 const uint8_t col1 = 20;
@@ -23,6 +24,7 @@ const uint8_t col2 = 120;
 const uint8_t id_r = 10;
 const uint8_t bv_r = 30;
 const uint8_t ttl_r = 50;
+const uint8_t status_r = 60;
 const uint8_t alt_r[] = {10,40,50,60};
 
 char buff[200] = {0};
@@ -31,8 +33,8 @@ uint16_t id_list[4] = {65535};
 uint16_t fid_list[4] = {0};
 uint16_t bv_list[4];
 
+uint8_t last_rx[4] = {0};
 uint16_t ttl_list[4];
-
 int32_t alt_list[4][4] = {{0}};   //[unit][time]
 uint16_t alt_ago_list[4][4] = {{0}};   //botom byte seconds, top byte minutes
 volatile uint8_t toggle = 0;
@@ -44,10 +46,14 @@ int main (void)
 	init_lcd();
     init_drawing();
 
-    for (uint8_t i = 0; i < 4; i++)
+    for (uint8_t i = 0; i < 4; i++){
         id_list[i] = 65535;
+		last_rx[i] = 255;
+	}
     
     
+	last_rx[0] = 0;
+	last_rx[2] = 20;
     id_list[0] = 2;
     id_list[2] = 12;
     //fid_list[4] = 0;
@@ -178,6 +184,8 @@ int main (void)
                     //alt_ago_list[index][1] = 35;
                 
                     redraw_data(index);
+					last_rx[index] = 0;
+					redraw_status(index,GREEN);
                     clear_activity_dot(index);
                 }
 
@@ -257,8 +265,32 @@ ISR(TIMER1_COMPA_vect)
         }
         redraw_flag = 0;
     }
+	
+	//update last rx
+	for (i = 0; i < 4; i++)
+	{
+		if (last_rx[i] < 255)
+			last_rx[i]++;
+		if (last_rx[i] == 30)
+			redraw_status(i,YELLOW);
+		if (last_rx[i] == 150)
+			redraw_status(i,RED);	
+	}
     
 }
+
+void redraw_status(uint8_t index, uint16_t c)
+{
+
+	rectangle r1;
+    r1.left = col1+42;
+    r1.top = status_r+2+index*80;
+    r1.bottom = status_r+6+index*80;
+    r1.right = col1+80;
+    fill_rectangle(r1,c);
+
+}
+
 
 void redraw_ago(uint8_t index)
 {
@@ -280,21 +312,21 @@ void redraw_ago(uint8_t index)
 void activity_dot(uint8_t index)
 {
     rectangle r1;
-    r1.left = col1;
-    r1.top = 60+index*80;
-    r1.bottom = 63+index*80;
-    r1.right = col1+4;
-    draw_rectangle_line(r1,2,GREEN);
+	r1.left = col1+82;
+    r1.top = status_r+2+index*80;
+    r1.bottom = status_r+6+index*80;
+    r1.right = col1+84;
+    fill_rectangle(r1,GREEN);
 }
 
 void clear_activity_dot(uint8_t index)
 {
     rectangle r1;
-    r1.left = col1;
-    r1.top = 60+index*80;
-    r1.bottom = 63+index*80;
-    r1.right = col1+4;
-    draw_rectangle_line(r1,2,BLACK);
+	r1.left = col1+82;
+    r1.top = status_r+2+index*80;
+    r1.bottom = status_r+6+index*80;
+    r1.right = col1+84;
+    fill_rectangle(r1,BLACK);
 }
 
 void redraw_data(uint8_t index)
@@ -346,6 +378,11 @@ void redraw_data(uint8_t index)
     snprintf(buff,25,"ttl: %u min",ttl_list[index]/60);
     display.x = col1;
     display.y = ttl_r + index*80;
+	display_string(buff);
+	
+	snprintf(buff,25,"status:");
+	display.x = col1;
+	display.y = status_r + index*80;
 	display_string(buff);
     
     
