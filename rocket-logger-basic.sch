@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.2">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -13505,7 +13505,7 @@ IC-09995</description>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
-<part name="R1" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R1" library="rcl" deviceset="R-EU_" device="R0402" value="56k2"/>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="X3" library="con-coax" deviceset="SMA-" device="142-0701-801/806"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
@@ -13518,7 +13518,7 @@ IC-09995</description>
 <part name="GND27" library="SparkFun" deviceset="GND" device=""/>
 <part name="C17" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND28" library="SparkFun" deviceset="GND" device=""/>
-<part name="R4" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R4" library="rcl" deviceset="R-EU_" device="R0402" value="100k"/>
 <part name="GND43" library="SparkFun" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
@@ -13526,13 +13526,13 @@ IC-09995</description>
 <part name="GND44" library="supply1" deviceset="GND" device=""/>
 <part name="JP2" library="SparkFun" deviceset="M02" device="PTH"/>
 <part name="+3V9" library="supply1" deviceset="+3V3" device=""/>
-<part name="R6" library="rcl" deviceset="R-EU_" device="R0402"/>
-<part name="R7" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R6" library="rcl" deviceset="R-EU_" device="R0402" value="4k7"/>
+<part name="R7" library="rcl" deviceset="R-EU_" device="R0402" value="4k7"/>
 <part name="+3V10" library="supply1" deviceset="+3V3" device=""/>
 <part name="+3V11" library="supply1" deviceset="+3V3" device=""/>
 <part name="D3" library="diode" deviceset="DIODE-" device="SOD523"/>
 <part name="D4" library="diode" deviceset="DIODE-" device="SOD523"/>
-<part name="R5" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R5" library="rcl" deviceset="R-EU_" device="R0402" value="4k7"/>
 <part name="SG1" library="buzzer" deviceset="EFB?" device="RD24C411"/>
 <part name="C26" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND46" library="SparkFun" deviceset="GND" device=""/>
@@ -13542,19 +13542,19 @@ IC-09995</description>
 <part name="TP1" library="testpad" deviceset="PTR1" device="B1,27"/>
 <part name="TP2" library="testpad" deviceset="PTR1" device="B1,27"/>
 <part name="GND47" library="supply1" deviceset="GND" device=""/>
-<part name="R8" library="rcl" deviceset="R-EU_" device="R0402"/>
-<part name="R9" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R8" library="rcl" deviceset="R-EU_" device="R0402" value="2M"/>
+<part name="R9" library="rcl" deviceset="R-EU_" device="R0402" value="2M"/>
 <part name="GND48" library="SparkFun" deviceset="GND" device=""/>
 <part name="C27" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND49" library="SparkFun" deviceset="GND" device=""/>
-<part name="R10" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R10" library="rcl" deviceset="R-EU_" device="R0402" value="100k"/>
 <part name="C18" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
 <part name="+3V3" library="supply1" deviceset="+3V3" device=""/>
 <part name="JP3" library="SparkFun" deviceset="M04" device="PTH"/>
-<part name="R11" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R11" library="rcl" deviceset="R-EU_" device="R0402" value="330"/>
 <part name="LED3" library="SparkFun" deviceset="LED" device="0603"/>
 <part name="U2" library="SparkFun" deviceset="MAX1555" device=""/>
 <part name="IC3" library="SparkFun" deviceset="V_REG_TPS76433" device="SOT23-5"/>
@@ -13566,7 +13566,7 @@ IC-09995</description>
 <part name="GND31" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND33" library="SparkFun" deviceset="GND" device=""/>
 <part name="U3" library="SparkFun-PowerIC" deviceset="MCP73831" device=""/>
-<part name="R13" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R13" library="rcl" deviceset="R-EU_" device="R0402" value="17k"/>
 <part name="GND34" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND35" library="SparkFun" deviceset="GND" device=""/>
 <part name="C19" library="resistor" deviceset="C-EU" device="C0402"/>
