@@ -2204,21 +2204,6 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <hole x="-2.54" y="0" drill="1.4"/>
 <hole x="2.54" y="0" drill="1.4"/>
 </package>
-<package name="SOT23">
-<description>&lt;b&gt;SOT-23&lt;/b&gt;</description>
-<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<smd name="3" x="0" y="1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="2" x="0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
-<smd name="1" x="-0.95" y="-1.1" dx="1" dy="1.4" layer="1"/>
-<text x="-0.889" y="2.032" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
-<rectangle x1="-0.2286" y1="0.7112" x2="0.2286" y2="1.2954" layer="51"/>
-<rectangle x1="0.7112" y1="-1.2954" x2="1.1684" y2="-0.7112" layer="51"/>
-<rectangle x1="-1.1684" y1="-1.2954" x2="-0.7112" y2="-0.7112" layer="51"/>
-</package>
 </packages>
 <symbols>
 <symbol name="M02">
@@ -2232,19 +2217,6 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <text x="-2.54" y="5.842" size="1.778" layer="95">&gt;NAME</text>
 <pin name="1" x="7.62" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="2" x="7.62" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
-<symbol name="MAX1555">
-<wire x1="-10.16" y1="5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-5.08" x2="7.62" y2="-5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="-5.08" x2="7.62" y2="5.08" width="0.254" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
-<text x="-10.16" y="5.842" size="1.778" layer="95">&gt;Name</text>
-<text x="-10.16" y="-7.62" size="1.778" layer="96">&gt;Value</text>
-<pin name="USB" x="-15.24" y="2.54" length="middle"/>
-<pin name="GND" x="-15.24" y="0" length="middle"/>
-<pin name="CHG" x="-15.24" y="-2.54" length="middle"/>
-<pin name="BATT" x="12.7" y="2.54" length="middle" rot="R180"/>
-<pin name="DC" x="12.7" y="-2.54" length="middle" rot="R180"/>
 </symbol>
 <symbol name="LED">
 <wire x1="1.27" y1="0" x2="0" y2="-2.54" width="0.254" layer="94"/>
@@ -2340,47 +2312,6 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 <pin name="2" x="5.08" y="0" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="3" x="5.08" y="2.54" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
 <pin name="4" x="5.08" y="5.08" visible="pad" length="middle" direction="pas" swaplevel="1" rot="R180"/>
-</symbol>
-<symbol name="MOSFET-PCHANNEL">
-<wire x1="-3.6576" y1="2.413" x2="-3.6576" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="1.905" x2="-2.0066" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="0" y2="-1.905" width="0.1524" layer="94"/>
-<wire x1="-2.032" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="1.905" x2="2.54" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-1.905" x2="0" y2="-1.905" width="0.1524" layer="94"/>
-<wire x1="0" y1="-1.905" x2="0" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-1.905" x2="2.54" y2="-0.762" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-0.762" x2="2.54" y2="1.905" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-0.762" x2="3.175" y2="0.635" width="0.1524" layer="94"/>
-<wire x1="3.175" y1="0.635" x2="1.905" y2="0.635" width="0.1524" layer="94"/>
-<wire x1="1.905" y1="0.635" x2="2.54" y2="-0.762" width="0.1524" layer="94"/>
-<wire x1="3.175" y1="-0.762" x2="2.54" y2="-0.762" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-0.762" x2="1.905" y2="-0.762" width="0.1524" layer="94"/>
-<wire x1="1.905" y1="-0.762" x2="1.651" y2="-1.016" width="0.1524" layer="94"/>
-<wire x1="3.175" y1="-0.762" x2="3.429" y2="-0.508" width="0.1524" layer="94"/>
-<wire x1="0" y1="0" x2="-1.27" y2="0.508" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="0.508" x2="-1.27" y2="-0.508" width="0.1524" layer="94"/>
-<wire x1="-1.27" y1="-0.508" x2="0" y2="0" width="0.1524" layer="94"/>
-<wire x1="-1.143" y1="0" x2="-2.032" y2="0" width="0.1524" layer="94"/>
-<wire x1="-1.143" y1="-0.254" x2="-0.254" y2="0" width="0.3048" layer="94"/>
-<wire x1="-0.254" y1="0" x2="-1.143" y2="0.254" width="0.3048" layer="94"/>
-<wire x1="-1.143" y1="0.254" x2="-1.143" y2="0" width="0.3048" layer="94"/>
-<wire x1="-1.143" y1="0" x2="-0.889" y2="0" width="0.3048" layer="94"/>
-<wire x1="-3.81" y1="0" x2="-5.08" y2="0" width="0.1524" layer="94"/>
-<circle x="0" y="-1.905" radius="0.127" width="0.4064" layer="94"/>
-<circle x="0" y="1.905" radius="0.127" width="0.4064" layer="94"/>
-<text x="5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
-<text x="5.08" y="0" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-1.27" y="2.54" size="0.8128" layer="93">D</text>
-<text x="-1.27" y="-3.556" size="0.8128" layer="93">S</text>
-<text x="-5.08" y="-1.27" size="0.8128" layer="93">G</text>
-<rectangle x1="-2.794" y1="-2.54" x2="-2.032" y2="-1.27" layer="94"/>
-<rectangle x1="-2.794" y1="1.27" x2="-2.032" y2="2.54" layer="94"/>
-<rectangle x1="-2.794" y1="-0.889" x2="-2.032" y2="0.889" layer="94"/>
-<pin name="G" x="-7.62" y="0" visible="off" length="short" direction="pas"/>
-<pin name="D" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="S" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -2494,27 +2425,6 @@ Standard 2-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MAX1555" prefix="U">
-<description>&lt;b&gt;MAX1555 Lithium Charger IC&lt;/b&gt;
-SOT-23 Lithium Polymer charging IC. Schematic element and footprint proven. Spark Fun Electronics SKU : COM-00674</description>
-<gates>
-<gate name="G$1" symbol="MAX1555" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23-5">
-<connects>
-<connect gate="G$1" pin="BATT" pad="5"/>
-<connect gate="G$1" pin="CHG" pad="3"/>
-<connect gate="G$1" pin="DC" pad="4"/>
-<connect gate="G$1" pin="GND" pad="2"/>
-<connect gate="G$1" pin="USB" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -2986,23 +2896,6 @@ Standard 4-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <connect gate="G$1" pin="2" pad="2"/>
 <connect gate="G$1" pin="3" pad="3"/>
 <connect gate="G$1" pin="4" pad="4"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="MOSFET-PCHANNEL" prefix="Q">
-<gates>
-<gate name="G$1" symbol="MOSFET-PCHANNEL" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23">
-<connects>
-<connect gate="G$1" pin="D" pad="3"/>
-<connect gate="G$1" pin="G" pad="1"/>
-<connect gate="G$1" pin="S" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -13469,16 +13362,16 @@ IC-09995</description>
 <part name="LED1" library="SparkFun" deviceset="LED" device="0603"/>
 <part name="LED2" library="SparkFun" deviceset="LED" device="0603"/>
 <part name="IC2" library="SparkFun" deviceset="V_REG_TPS76433" device="SOT23-5"/>
-<part name="C1" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C2" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C3" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C4" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C5" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C6" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C1" library="resistor" deviceset="C-EU" device="C0402" value="470n"/>
+<part name="C2" library="resistor" deviceset="C-EU" device="C0402" value="100n"/>
+<part name="C3" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
+<part name="C4" library="resistor" deviceset="C-EU" device="C0402" value="100n"/>
+<part name="C5" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
+<part name="C6" library="resistor" deviceset="C-EU" device="C0402" value="100n"/>
 <part name="C7" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C8" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C9" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C10" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C8" library="resistor" deviceset="C-EU" device="C0402" value="100p"/>
+<part name="C9" library="resistor" deviceset="C-EU" device="C0402" value="100n"/>
+<part name="C10" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -13493,15 +13386,15 @@ IC-09995</description>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
 <part name="X2" library="SparkFun" deviceset="USB" device="-MICROB"/>
 <part name="GND32" library="SparkFun" deviceset="GND" device=""/>
-<part name="C11" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C11" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
 <part name="GND14" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND16" library="SparkFun" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
-<part name="C12" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C12" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
 <part name="GND17" library="SparkFun" deviceset="GND" device=""/>
 <part name="Q1" library="SparkFun" deviceset="CRYSTAL" device="5X3"/>
-<part name="C13" library="resistor" deviceset="C-EU" device="C0402"/>
-<part name="C14" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C13" library="resistor" deviceset="C-EU" device="C0402" value="27p"/>
+<part name="C14" library="resistor" deviceset="C-EU" device="C0402" value="27p"/>
 <part name="GND18" library="supply1" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
@@ -13509,14 +13402,14 @@ IC-09995</description>
 <part name="GND21" library="supply1" deviceset="GND" device=""/>
 <part name="X3" library="con-coax" deviceset="SMA-" device="142-0701-801/806"/>
 <part name="GND22" library="supply1" deviceset="GND" device=""/>
-<part name="R2" library="rcl" deviceset="R-EU_" device="R0402"/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="R0402"/>
+<part name="R2" library="rcl" deviceset="R-EU_" device="R0402" value="110"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="R0402" value="110"/>
 <part name="C15" library="resistor" deviceset="C-EU" device="C0402" value="10u"/>
 <part name="C16" library="resistor" deviceset="C-EU" device="C0402" value="100n"/>
 <part name="GND25" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND26" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND27" library="SparkFun" deviceset="GND" device=""/>
-<part name="C17" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C17" library="resistor" deviceset="C-EU" device="C0402" value="100n"/>
 <part name="GND28" library="SparkFun" deviceset="GND" device=""/>
 <part name="R4" library="rcl" deviceset="R-EU_" device="R0402" value="100k"/>
 <part name="GND43" library="SparkFun" deviceset="GND" device=""/>
@@ -13534,7 +13427,7 @@ IC-09995</description>
 <part name="D4" library="diode" deviceset="DIODE-" device="SOD523"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0402" value="4k7"/>
 <part name="SG1" library="buzzer" deviceset="EFB?" device="RD24C411"/>
-<part name="C26" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C26" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
 <part name="GND46" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
@@ -13548,7 +13441,7 @@ IC-09995</description>
 <part name="C27" library="resistor" deviceset="C-EU" device="C0402"/>
 <part name="GND49" library="SparkFun" deviceset="GND" device=""/>
 <part name="R10" library="rcl" deviceset="R-EU_" device="R0402" value="100k"/>
-<part name="C18" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C18" library="resistor" deviceset="C-EU" device="C0402" value="2n2"/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND30" library="supply1" deviceset="GND" device=""/>
@@ -13556,11 +13449,6 @@ IC-09995</description>
 <part name="JP3" library="SparkFun" deviceset="M04" device="PTH"/>
 <part name="R11" library="rcl" deviceset="R-EU_" device="R0402" value="330"/>
 <part name="LED3" library="SparkFun" deviceset="LED" device="0603"/>
-<part name="U2" library="SparkFun" deviceset="MAX1555" device=""/>
-<part name="IC3" library="SparkFun" deviceset="V_REG_TPS76433" device="SOT23-5"/>
-<part name="D1" library="diode" deviceset="DIODE-" device="SOD523"/>
-<part name="Q2" library="SparkFun" deviceset="MOSFET-PCHANNEL" device=""/>
-<part name="R12" library="rcl" deviceset="R-EU_" device="R0402"/>
 <part name="U$1" library="Mine" deviceset="JST-ZR-2" device=""/>
 <part name="U$2" library="Mine" deviceset="JST-ZR-2" device="SMD"/>
 <part name="GND31" library="SparkFun" deviceset="GND" device=""/>
@@ -13569,7 +13457,7 @@ IC-09995</description>
 <part name="R13" library="rcl" deviceset="R-EU_" device="R0402" value="17k"/>
 <part name="GND34" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND35" library="SparkFun" deviceset="GND" device=""/>
-<part name="C19" library="resistor" deviceset="C-EU" device="C0402"/>
+<part name="C19" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
 <part name="GND13" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -13675,11 +13563,6 @@ IC-09995</description>
 <instance part="JP3" gate="G$1" x="-20.32" y="113.03"/>
 <instance part="R11" gate="G$1" x="109.22" y="207.01" rot="R270"/>
 <instance part="LED3" gate="G$1" x="109.22" y="214.63" rot="R180"/>
-<instance part="U2" gate="G$1" x="121.92" y="278.13"/>
-<instance part="IC3" gate="G$1" x="162.56" y="273.05"/>
-<instance part="D1" gate="G$1" x="128.27" y="303.53"/>
-<instance part="Q2" gate="G$1" x="137.16" y="294.64" rot="MR90"/>
-<instance part="R12" gate="G$1" x="138.43" y="267.97" rot="R270"/>
 <instance part="U$1" gate="G$1" x="149.86" y="248.92" rot="R270"/>
 <instance part="U$2" gate="G$1" x="162.56" y="248.92" rot="R270"/>
 <instance part="GND31" gate="1" x="165.1" y="238.76" smashed="yes"/>
@@ -14292,53 +14175,6 @@ IC-09995</description>
 <pinref part="LED3" gate="G$1" pin="C"/>
 <wire x1="109.22" y1="223.52" x2="109.22" y2="219.71" width="0.1524" layer="91"/>
 <pinref part="U3" gate="G$1" pin="STAT"/>
-</segment>
-</net>
-<net name="N$20" class="0">
-<segment>
-<pinref part="D1" gate="G$1" pin="C"/>
-<wire x1="130.81" y1="303.53" x2="149.86" y2="303.53" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="303.53" x2="149.86" y2="294.64" width="0.1524" layer="91"/>
-<pinref part="IC3" gate="G$1" pin="IN"/>
-<wire x1="149.86" y1="294.64" x2="149.86" y2="280.67" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="280.67" x2="154.94" y2="280.67" width="0.1524" layer="91"/>
-<pinref part="Q2" gate="G$1" pin="D"/>
-<wire x1="142.24" y1="294.64" x2="149.86" y2="294.64" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="Q2" gate="G$1" pin="G"/>
-<wire x1="137.16" y1="287.02" x2="138.43" y2="287.02" width="0.1524" layer="91"/>
-<wire x1="138.43" y1="287.02" x2="138.43" y2="273.05" width="0.1524" layer="91"/>
-<pinref part="R12" gate="G$1" pin="1"/>
-<pinref part="U2" gate="G$1" pin="USB"/>
-<wire x1="106.68" y1="280.67" x2="104.14" y2="280.67" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="280.67" x2="95.25" y2="280.67" width="0.1524" layer="91"/>
-<wire x1="104.14" y1="280.67" x2="104.14" y2="303.53" width="0.1524" layer="91"/>
-<pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="104.14" y1="303.53" x2="120.65" y2="303.53" width="0.1524" layer="91"/>
-<wire x1="120.65" y1="303.53" x2="125.73" y2="303.53" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="287.02" x2="120.65" y2="287.02" width="0.1524" layer="91"/>
-<wire x1="120.65" y1="287.02" x2="120.65" y2="303.53" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="138.43" y1="262.89" x2="138.43" y2="260.35" width="0.1524" layer="91"/>
-<wire x1="138.43" y1="260.35" x2="137.16" y2="260.35" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="260.35" x2="137.16" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="259.08" x2="139.7" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="259.08" x2="139.7" y2="260.35" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$27" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="BATT"/>
-<pinref part="Q2" gate="G$1" pin="S"/>
-<wire x1="134.62" y1="280.67" x2="132.08" y2="280.67" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="280.67" x2="132.08" y2="294.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$1" class="0">
