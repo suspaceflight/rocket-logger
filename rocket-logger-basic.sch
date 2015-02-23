@@ -13427,7 +13427,7 @@ IC-09995</description>
 <part name="D4" library="diode" deviceset="DIODE-" device="SOD523"/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="R0402" value="4k7"/>
 <part name="SG1" library="buzzer" deviceset="EFB?" device="RD24C411"/>
-<part name="C26" library="resistor" deviceset="C-EU" device="C0402" value="1u"/>
+<part name="C26" library="resistor" deviceset="C-EU" device="C0402" value="4u7"/>
 <part name="GND46" library="SparkFun" deviceset="GND" device=""/>
 <part name="GND23" library="supply1" deviceset="GND" device=""/>
 <part name="GND24" library="supply1" deviceset="GND" device=""/>
